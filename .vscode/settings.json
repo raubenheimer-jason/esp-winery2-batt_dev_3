@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "ulp.h": "c",
+        "ulp_main.h": "c",
+        "esp_sleep.h": "c",
+        "freertos.h": "c",
+        "timers.h": "c",
+        "esp_event.h": "c",
+        "semphr.h": "c"
+    }
+}
