@@ -3,7 +3,7 @@
 # project subdirectory. 
 #
 
-PROJECT_NAME := ulp-example
+PROJECT_NAME := batt_dev
 
 include $(IDF_PATH)/make/project.mk
 

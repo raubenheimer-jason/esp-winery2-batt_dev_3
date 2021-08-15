@@ -1,4 +1,4 @@
-idf_component_register(SRCS "ulp_example_main.c"
+idf_component_register(SRCS "batt_dev_main.c"
                     INCLUDE_DIRS "."
                     REQUIRES soc nvs_flash ulp)
 #
@@ -14,12 +14,12 @@ set(ulp_s_sources "ulp/crc8Maxim.S" "ulp/onewire.S" "ulp/stack.S")
 #
 # 3. List all the component source files which include automatically
 #    generated ULP export file, ${ulp_app_name}.h:
-set(ulp_exp_dep_srcs "ulp_example_main.c")
+set(ulp_exp_dep_srcs "batt_dev_main.c")
 #
 # 4. Call function to build ULP binary and embed in project using the argument
 #    values above.
 ulp_embed_binary(${ulp_app_name} "${ulp_s_sources}" "${ulp_exp_dep_srcs}")
 
 
-#idf_component_register(SRCS "ulp_example_main.c"
+#idf_component_register(SRCS "batt_dev_main.c"
 #                    INCLUDE_DIRS ".")

@@ -18,7 +18,7 @@ ULP_S_SOURCES = $(addprefix $(COMPONENT_PATH)/ulp/, \
 #
 # 3. List all the component object files which include automatically
 #    generated ULP export file, $(ULP_APP_NAME).h:
-ULP_EXP_DEP_OBJECTS := ulp_example_main.o
+ULP_EXP_DEP_OBJECTS := batt_dev_main.o
 #
 # 4. Include build rules for ULP program 
 include $(IDF_PATH)/components/ulp/component_ulp_common.mk

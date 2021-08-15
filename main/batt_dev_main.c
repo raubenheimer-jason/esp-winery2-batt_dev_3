@@ -11,6 +11,8 @@
 
 // SHIFT + ALT + F
 
+#define MEASUREMENT_INTERVAL_SECONDS 60
+
 #include <stdio.h>
 #include "esp_sleep.h"
 #include "nvs.h"
@@ -40,11 +42,11 @@
 #include "esp_system.h"
 #include "esp_now.h"
 #include "esp_crc.h"
-#include "espnow_example.h"
+#include "espnow_batt_dev.h"
 
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
-static const char *TAG = "espnow_example";
+static const char *TAG = "espnow_batt_dev";
 
 static xQueueHandle s_example_espnow_queue;
 
@@ -165,7 +167,7 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
     buf->crc = esp_crc16_le(UINT16_MAX, (uint8_t const *)buf, send_param->len);
 }
 
-static void example_espnow_task(void *pvParameter)
+static void main_espnow_task(void *pvParameter)
 {
     xSemaphoreTake(can_sleep_sema, portMAX_DELAY); // take semaphore so esp doesn't sleep yet (give at the end of task)
 
@@ -185,9 +187,9 @@ static void example_espnow_task(void *pvParameter)
     */
 
     //* get temp value here
-    // float temperatureC = 0.0;
-    // temperatureC = ulp_temperatureC & UINT16_MAX;
-    // printf("temp from espNow task: %.2f\n", temperatureC / 16);
+    float temperatureC = 0.0;
+    temperatureC = ulp_temperatureC & UINT16_MAX;
+    printf("temp from espNow task: %.2f\n", temperatureC / 16);
 
     // int32_t temp = 2155;     // 21.55 deg c // old dummy temp variable
     uint32_t temp = ulp_temperatureC & UINT16_MAX; // need to divide by 16 to get temp in deg. C
@@ -224,6 +226,8 @@ static void example_espnow_task(void *pvParameter)
 
     // printf("data len: %d\n", send_param->len);
 
+    // vTaskDelay(5000 / portTICK_PERIOD_MS);
+
     // 10010001
 
     if (esp_now_send(send_param->dest_mac, send_param->buffer, send_param->len) != ESP_OK)
@@ -238,7 +242,7 @@ static void example_espnow_task(void *pvParameter)
     vTaskDelete(NULL);
 }
 
-static esp_err_t example_espnow_init()
+static esp_err_t main_espnow_init()
 {
     example_espnow_send_param_t *send_param;
 
@@ -301,9 +305,16 @@ static esp_err_t example_espnow_init()
     memcpy(send_param->dest_mac, s_example_broadcast_mac, ESP_NOW_ETH_ALEN);
     example_espnow_data_prepare(send_param);
 
-    xTaskCreate(example_espnow_task, "example_espnow_task", 2048, send_param, 4, NULL);
+    BaseType_t xReturned = xTaskCreate(main_espnow_task, "main_espnow_task", 2048, send_param, 4, NULL);
 
-    return ESP_OK;
+    if (xReturned == pdPASS)
+    {
+        return ESP_OK;
+    }
+    else
+    {
+        return ESP_FAIL;
+    }
 }
 
 static void example_espnow_deinit(example_espnow_send_param_t *send_param)
@@ -347,13 +358,20 @@ void app_main(void)
         can_sleep_sema = xSemaphoreCreateBinary();
         xSemaphoreGive(can_sleep_sema);
 
-        example_espnow_init();
+        // esp_err_t res = main_espnow_init();
+        // printf("res: %d\n", res);
+
+        main_espnow_init();
+
+        vTaskDelay(1); //! not sure why I need this... but main_espnow_task doesn't run without it
 
         xSemaphoreTake(can_sleep_sema, portMAX_DELAY);
 
         //! end batt_dev_1 stuff
     }
 
+    // ESP_ERROR_CHECK(ulp_set_wakeup_period(0, 30000000));
+    ESP_ERROR_CHECK(ulp_set_wakeup_period(0, MEASUREMENT_INTERVAL_SECONDS * 1000000));
     ESP_ERROR_CHECK(esp_sleep_enable_ulp_wakeup());
 
     uint32_t progtime = esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
@@ -391,7 +409,7 @@ static void init_ulp_program()
      */
     // REG_SET_FIELD(SENS_ULP_CP_SLEEP_CYC0_REG, SENS_SLEEP_CYCLES_S0, 3095);
     // REG_SET_FIELD(SENS_ULP_CP_SLEEP_CYC0_REG, SENS_SLEEP_CYCLES_S0, 150000); //! this one was uncommented
-    REG_SET_FIELD(SENS_ULP_CP_SLEEP_CYC0_REG, SENS_SLEEP_CYCLES_S0, 1000000); //! this one was uncommented
+    // REG_SET_FIELD(SENS_ULP_CP_SLEEP_CYC0_REG, SENS_SLEEP_CYCLES_S0, 1000000); //! this one was uncommented
 
     /* Start the program */
     err = ulp_run(&ulp_entry - RTC_SLOW_MEM);
