@@ -185,9 +185,9 @@ static void example_espnow_task(void *pvParameter)
     */
 
     //* get temp value here
-    float temperatureC = 0.0;
-    temperatureC = ulp_temperatureC & UINT16_MAX;
-    printf("temp from espNow task ---------> %.2f\n", temperatureC / 16);
+    // float temperatureC = 0.0;
+    // temperatureC = ulp_temperatureC & UINT16_MAX;
+    // printf("temp from espNow task: %.2f\n", temperatureC / 16);
 
     // int32_t temp = 2155;     // 21.55 deg c // old dummy temp variable
     uint32_t temp = ulp_temperatureC & UINT16_MAX; // need to divide by 16 to get temp in deg. C
@@ -216,12 +216,13 @@ static void example_espnow_task(void *pvParameter)
         send_param->buffer[i] = ((batv >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
 
-    for (uint32_t i = 0; i < send_param->len; i++)
-    {
-        printf("buffer[%d]: %d\n", i, send_param->buffer[i]);
-    }
+    //* Don't delete... use to print buffer to send
+    // for (uint32_t i = 0; i < send_param->len; i++)
+    // {
+    //     printf("buffer[%d]: %d\n", i, send_param->buffer[i]);
+    // }
 
-    printf("data len: %d\n", send_param->len);
+    // printf("data len: %d\n", send_param->len);
 
     // 10010001
 
@@ -230,10 +231,6 @@ static void example_espnow_task(void *pvParameter)
         ESP_LOGE(TAG, "Send error");
         example_espnow_deinit(send_param);
         vTaskDelete(NULL);
-    }
-    else
-    {
-        printf("success\n");
     }
 
     xSemaphoreGive(can_sleep_sema); // give back semaphore so the esp can sleep
@@ -352,22 +349,16 @@ void app_main(void)
 
         example_espnow_init();
 
-        // send data over espnow
-
-        // deep sleep
-        printf("waiting for semaphore before going to sleep...\n");
-
         xSemaphoreTake(can_sleep_sema, portMAX_DELAY);
-
-        uint32_t progtime = esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
-
-        printf("progtime = %d\nSleeping.\n", progtime);
 
         //! end batt_dev_1 stuff
     }
 
-    printf("Entering deep sleep\n\n");
     ESP_ERROR_CHECK(esp_sleep_enable_ulp_wakeup());
+
+    uint32_t progtime = esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
+
+    printf("progtime = %d\nSleeping.\n", progtime);
 
     esp_deep_sleep_start();
 }
