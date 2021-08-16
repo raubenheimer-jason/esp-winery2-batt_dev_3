@@ -58,7 +58,7 @@ SemaphoreHandle_t can_sleep_sema = NULL;
 
 //! end batt_dev_1 stuff
 
-RTC_DATA_ATTR int counter;
+RTC_DATA_ATTR uint32_t p_time;
 
 extern const uint8_t ulp_main_bin_start[] asm("_binary_ulp_main_bin_start");
 extern const uint8_t ulp_main_bin_end[] asm("_binary_ulp_main_bin_end");
@@ -156,13 +156,8 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
 
     assert(send_param->len >= sizeof(example_espnow_data_t));
 
-    // buf->type = IS_BROADCAST_ADDR(send_param->dest_mac) ? EXAMPLE_ESPNOW_DATA_BROADCAST : EXAMPLE_ESPNOW_DATA_UNICAST;
-    // buf->state = send_param->state;
-    // buf->seq_num = s_example_espnow_seq[buf->type]++;
     buf->crc = 0;
-    // buf->magic = send_param->magic;
-    /* Fill all remaining bytes after the data with random values */
-    // esp_fill_random(buf->payload, send_param->len - sizeof(example_espnow_data_t));
+
     fill_zero(buf->payload, send_param->len - sizeof(example_espnow_data_t));
 
     // what to send:
@@ -182,8 +177,8 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
 
     // int32_t temp = 2155;     // 21.55 deg c // old dummy temp variable
     uint32_t temp = ulp_temperatureC & UINT16_MAX; // need to divide by 16 to get temp in deg. C
-    uint32_t ptime = 158001;                       // 158,001 milli seconds
-    uint32_t batv = 378;                           // 3.78 V
+    // uint32_t ptime = 158001;                       // 158,001 milli seconds // old dummy p_time variable
+    uint32_t batv = 378; // 3.78 V
 
     // reserved for crc??
     // send_param->buffer[0] = 1;
@@ -192,21 +187,19 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
     // temp
     for (int i = 2; i < 6; i++)
     {
-        // send_param->buffer[i] = ((temp >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
         buf->payload[i] = ((temp >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
 
-    // program time
+    // PREVIOUS program time
     for (int i = 6; i < 10; i++)
     {
-        // send_param->buffer[i] = ((ptime >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
-        buf->payload[i] = ((ptime >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+        buf->payload[i] = ((p_time >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
+    printf("p_time: %d\n", p_time);
 
     // bat voltage
     for (int i = 10; i < 14; i++)
     {
-        // send_param->buffer[i] = ((batv >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
         buf->payload[i] = ((batv >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
 
@@ -228,64 +221,6 @@ static void main_espnow_task(void *pvParameter)
 
     /* Start sending broadcast ESPNOW data. */
     example_espnow_send_param_t *send_param = (example_espnow_send_param_t *)pvParameter;
-
-    // // what to send:
-    // /*
-    // 1. temperature value (4 bytes, int32_t)
-    // 2. how long the last wake ran for (4 bytes, uint32_t)
-    // 3. battery voltage (4 bytes, uint32_t) <-- can be less but jsut keep it long for future dev
-
-    // length = 2 for crc? + 4 for temp + 4 for time + 4 for batt
-    // = 14
-    // */
-
-    // //* get temp value here
-    // float temperatureC = 0.0;
-    // temperatureC = ulp_temperatureC & UINT16_MAX;
-    // printf("temp from espNow task: %.2f\n", temperatureC / 16);
-
-    // // int32_t temp = 2155;     // 21.55 deg c // old dummy temp variable
-    // uint32_t temp = ulp_temperatureC & UINT16_MAX; // need to divide by 16 to get temp in deg. C
-    // uint32_t ptime = 158001;                       // 158,001 milli seconds
-    // uint32_t batv = 378;                           // 3.78 V
-
-    // // reserved for crc??
-    // // send_param->buffer[0] = 1;
-    // // send_param->buffer[1] = 2;
-
-    // // temp
-    // for (int i = 2; i < 6; i++)
-    // {
-    //     send_param->buffer[i] = ((temp >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
-    // }
-
-    // // program time
-    // for (int i = 6; i < 10; i++)
-    // {
-    //     send_param->buffer[i] = ((ptime >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
-    // }
-
-    // // bat voltage
-    // for (int i = 10; i < 14; i++)
-    // {
-    //     send_param->buffer[i] = ((batv >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
-    // }
-
-    // //* Don't delete... use to print buffer to send
-    // // for (uint32_t i = 0; i < send_param->len; i++)
-    // // {
-    // //     printf("buffer[%d]: %d\n", i, send_param->buffer[i]);
-    // // }
-    // //* --------------------------------------------
-
-    // printf("data len: %d\n", send_param->len);
-
-    // vTaskDelay(5000 / portTICK_PERIOD_MS);
-
-    // 10010001
-
-    // buf->crc = esp_crc16_le(UINT16_MAX, (uint8_t const *)buf, send_param->len);
-    // send_param->buffer->crc = esp_crc16_le(UINT16_MAX, (uint8_t const *)send_param->buffer, send_param->len);
 
     if (esp_now_send(send_param->dest_mac, send_param->buffer, send_param->len) != ESP_OK)
     {
@@ -391,15 +326,10 @@ void app_main(void)
     {
         printf("Not ULP wakeup, initializing ULP\n");
         init_ulp_program();
+        p_time = 0;
     }
     else
     {
-        counter++;
-        // float temperatureC = 0.0;
-        // temperatureC = ulp_temperatureC & UINT16_MAX;
-        // printf("<<<<<< Result: %d >>>>>>\n", counter);
-        // printf("----- Temperature in C ----- %.2f\n", temperatureC / 16);
-
         //! batt_dev_1 stuff
 
         // Initialize NVS
@@ -416,9 +346,6 @@ void app_main(void)
         can_sleep_sema = xSemaphoreCreateBinary();
         xSemaphoreGive(can_sleep_sema);
 
-        // esp_err_t res = main_espnow_init();
-        // printf("res: %d\n", res);
-
         main_espnow_init();
 
         vTaskDelay(1); //! not sure why I need this... but main_espnow_task doesn't run without it
@@ -428,13 +355,13 @@ void app_main(void)
         //! end batt_dev_1 stuff
     }
 
-    // ESP_ERROR_CHECK(ulp_set_wakeup_period(0, 30000000));
     ESP_ERROR_CHECK(ulp_set_wakeup_period(0, MEASUREMENT_INTERVAL_SECONDS * 1000000));
     ESP_ERROR_CHECK(esp_sleep_enable_ulp_wakeup());
 
-    uint32_t progtime = esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
+    // uint32_t progtime = esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
+    p_time = (uint32_t)esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
 
-    printf("progtime = %d\nSleeping.\n", progtime);
+    printf("p_time = %d\nSleeping.\n", p_time);
 
     esp_deep_sleep_start();
 }
@@ -454,8 +381,6 @@ static void init_ulp_program()
      *
      * Note that the ULP reads only the lower 16 bits of these variables.
      */
-
-    counter = 0;
 
     rtc_gpio_init(one_wire_port);
     // ESP-IDF has an typo error on RTC_GPIO_MODE_INPUT_OUTUT, missing P, fixed
