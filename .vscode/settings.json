@@ -6,6 +6,7 @@
         "freertos.h": "c",
         "timers.h": "c",
         "esp_event.h": "c",
-        "semphr.h": "c"
+        "semphr.h": "c",
+        "*.ipp": "c"
     }
 }

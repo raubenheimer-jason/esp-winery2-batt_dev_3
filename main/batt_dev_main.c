@@ -11,7 +11,7 @@
 
 // SHIFT + ALT + F
 
-#define MEASUREMENT_INTERVAL_SECONDS 60
+#define MEASUREMENT_INTERVAL_SECONDS 9 // should subtract +-0.75 seconds for temp conversion?
 
 #include <stdio.h>
 #include "esp_sleep.h"
@@ -164,17 +164,6 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
     /* Fill all remaining bytes after the data with random values */
     // esp_fill_random(buf->payload, send_param->len - sizeof(example_espnow_data_t));
     fill_zero(buf->payload, send_param->len - sizeof(example_espnow_data_t));
-    buf->crc = esp_crc16_le(UINT16_MAX, (uint8_t const *)buf, send_param->len);
-}
-
-static void main_espnow_task(void *pvParameter)
-{
-    xSemaphoreTake(can_sleep_sema, portMAX_DELAY); // take semaphore so esp doesn't sleep yet (give at the end of task)
-
-    ESP_LOGI(TAG, "Send sensor data");
-
-    /* Start sending broadcast ESPNOW data. */
-    example_espnow_send_param_t *send_param = (example_espnow_send_param_t *)pvParameter;
 
     // what to send:
     /*
@@ -203,19 +192,22 @@ static void main_espnow_task(void *pvParameter)
     // temp
     for (int i = 2; i < 6; i++)
     {
-        send_param->buffer[i] = ((temp >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+        // send_param->buffer[i] = ((temp >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+        buf->payload[i] = ((temp >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
 
     // program time
     for (int i = 6; i < 10; i++)
     {
-        send_param->buffer[i] = ((ptime >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+        // send_param->buffer[i] = ((ptime >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+        buf->payload[i] = ((ptime >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
 
     // bat voltage
     for (int i = 10; i < 14; i++)
     {
-        send_param->buffer[i] = ((batv >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+        // send_param->buffer[i] = ((batv >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+        buf->payload[i] = ((batv >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
 
     //* Don't delete... use to print buffer to send
@@ -223,12 +215,77 @@ static void main_espnow_task(void *pvParameter)
     // {
     //     printf("buffer[%d]: %d\n", i, send_param->buffer[i]);
     // }
+    //* --------------------------------------------
+
+    buf->crc = esp_crc16_le(UINT16_MAX, (uint8_t const *)buf, send_param->len);
+}
+
+static void main_espnow_task(void *pvParameter)
+{
+    xSemaphoreTake(can_sleep_sema, portMAX_DELAY); // take semaphore so esp doesn't sleep yet (give at the end of task)
+
+    ESP_LOGI(TAG, "Send sensor data");
+
+    /* Start sending broadcast ESPNOW data. */
+    example_espnow_send_param_t *send_param = (example_espnow_send_param_t *)pvParameter;
+
+    // // what to send:
+    // /*
+    // 1. temperature value (4 bytes, int32_t)
+    // 2. how long the last wake ran for (4 bytes, uint32_t)
+    // 3. battery voltage (4 bytes, uint32_t) <-- can be less but jsut keep it long for future dev
+
+    // length = 2 for crc? + 4 for temp + 4 for time + 4 for batt
+    // = 14
+    // */
+
+    // //* get temp value here
+    // float temperatureC = 0.0;
+    // temperatureC = ulp_temperatureC & UINT16_MAX;
+    // printf("temp from espNow task: %.2f\n", temperatureC / 16);
+
+    // // int32_t temp = 2155;     // 21.55 deg c // old dummy temp variable
+    // uint32_t temp = ulp_temperatureC & UINT16_MAX; // need to divide by 16 to get temp in deg. C
+    // uint32_t ptime = 158001;                       // 158,001 milli seconds
+    // uint32_t batv = 378;                           // 3.78 V
+
+    // // reserved for crc??
+    // // send_param->buffer[0] = 1;
+    // // send_param->buffer[1] = 2;
+
+    // // temp
+    // for (int i = 2; i < 6; i++)
+    // {
+    //     send_param->buffer[i] = ((temp >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+    // }
+
+    // // program time
+    // for (int i = 6; i < 10; i++)
+    // {
+    //     send_param->buffer[i] = ((ptime >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+    // }
+
+    // // bat voltage
+    // for (int i = 10; i < 14; i++)
+    // {
+    //     send_param->buffer[i] = ((batv >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+    // }
+
+    // //* Don't delete... use to print buffer to send
+    // // for (uint32_t i = 0; i < send_param->len; i++)
+    // // {
+    // //     printf("buffer[%d]: %d\n", i, send_param->buffer[i]);
+    // // }
+    // //* --------------------------------------------
 
     // printf("data len: %d\n", send_param->len);
 
     // vTaskDelay(5000 / portTICK_PERIOD_MS);
 
     // 10010001
+
+    // buf->crc = esp_crc16_le(UINT16_MAX, (uint8_t const *)buf, send_param->len);
+    // send_param->buffer->crc = esp_crc16_le(UINT16_MAX, (uint8_t const *)send_param->buffer, send_param->len);
 
     if (esp_now_send(send_param->dest_mac, send_param->buffer, send_param->len) != ESP_OK)
     {
@@ -290,6 +347,7 @@ static esp_err_t main_espnow_init()
     }
 
     uint8_t length = 14;
+    // uint8_t length = 20; // added 6 for MAC
     send_param->len = length;
     send_param->buffer = malloc(length);
 
