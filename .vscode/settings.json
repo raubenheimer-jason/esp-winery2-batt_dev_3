@@ -1,4 +1,7 @@
 {
+    "idf.portWin": "COM4",
+    "idf.adapterTargetName": "esp32",
+    "idf.flashType": "UART",
     "files.associations": {
         "ulp.h": "c",
         "ulp_main.h": "c",
