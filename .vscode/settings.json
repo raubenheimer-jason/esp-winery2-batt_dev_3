@@ -10,6 +10,7 @@
         "timers.h": "c",
         "esp_event.h": "c",
         "semphr.h": "c",
-        "*.ipp": "c"
+        "*.ipp": "c",
+        "esp_log.h": "c"
     }
 }

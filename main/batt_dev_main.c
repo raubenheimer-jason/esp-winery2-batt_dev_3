@@ -172,12 +172,11 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
     payload length = 12
     */
 
-    uint32_t payload_len = 12;
-
     //* get temp value here
     float temperatureC = 0.0;
     temperatureC = ulp_temperatureC & UINT16_MAX;
-    printf("temp from espNow task: %.4f\n", temperatureC / 16);
+    ESP_LOGI(TAG, "temp: %.4f", temperatureC / 16);
+    printf("temp: %.4f\n", temperatureC / 16);
 
     // int32_t temp = 2155;     // 21.55 deg c // old dummy temp variable
     uint32_t temp = ulp_temperatureC & UINT16_MAX; // need to divide by 16 to get temp in deg. C
@@ -189,39 +188,34 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
     // send_param->buffer[1] = 2;
 
     // temp
-    // for (int i = 2; i < 6; i++)
     for (int i = 0; i < 4; i++)
     {
         buf->payload[i] = ((temp >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
 
     // PREVIOUS program time
-    // for (int i = 6; i < 10; i++)
     for (int i = 4; i < 8; i++)
     {
         buf->payload[i] = ((p_time >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
+    ESP_LOGI(TAG, "p_time: %d", p_time);
     printf("p_time: %d\n", p_time);
 
     // bat voltage
-    // for (int i = 10; i < 14; i++)
     for (int i = 8; i < 12; i++)
     {
         buf->payload[i] = ((batv >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
+    ESP_LOGI(TAG, "batv: %d", batv);
     printf("batv: %d\n", batv);
 
     buf->crc = esp_crc16_le(UINT16_MAX, (uint8_t const *)buf, send_param->len);
 
     //* Don't delete... use to print buffer to send
-    // for (uint32_t i = 0; i < send_param->len; i++)
+    // for (uint32_t i = 0; i < 12; i++)
     // {
-    //     printf("buffer[%d]: %d\n", i, send_param->buffer[i]);
+    //     printf("payload[%d]: %d\n", i, buf->payload[i]);
     // }
-    for (uint32_t i = 0; i < payload_len; i++)
-    {
-        printf("payload[%d]: %d\n", i, buf->payload[i]);
-    }
     //* --------------------------------------------
 }
 
@@ -294,9 +288,7 @@ static esp_err_t main_espnow_init()
     }
 
     uint8_t length = 14;
-    // uint8_t length = 12; // 4 temp, 4 p_time, 4 batv (dont need to factor in 2 bytes for crc)
-    // uint8_t length = 16;
-    // uint8_t length = 20; // added 6 for MAC
+
     send_param->len = length;
     send_param->buffer = malloc(length);
 
@@ -335,6 +327,8 @@ static void example_espnow_deinit(example_espnow_send_param_t *send_param)
 
 void app_main(void)
 {
+    esp_log_level_set(TAG, ESP_LOG_INFO);
+
     esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
     if (cause != ESP_SLEEP_WAKEUP_ULP)
     {
@@ -373,9 +367,10 @@ void app_main(void)
     ESP_ERROR_CHECK(esp_sleep_enable_ulp_wakeup());
 
     // uint32_t progtime = esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
-    // p_time = (uint32_t)esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
-    p_time = (uint32_t)131547; // could be an issue with int64_t to uint32_t?
+    p_time = (uint32_t)esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
+    // p_time = (uint32_t)131547; // could be an issue with int64_t to uint32_t?
 
+    ESP_LOGI(TAG, "p_time = %d\nSleeping.", p_time);
     printf("p_time = %d\nSleeping.\n", p_time);
 
     esp_deep_sleep_start();
