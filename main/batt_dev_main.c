@@ -330,6 +330,7 @@ void app_main(void)
 {
     esp_log_level_set(TAG, ESP_LOG_INFO);
 
+    //! led stuff
     gpio_config_t io_conf;
     //disable interrupt
     io_conf.intr_type = GPIO_INTR_DISABLE;
@@ -350,6 +351,7 @@ void app_main(void)
 
     gpio_set_level(dfrobot_led_pin, 0);
     gpio_hold_en(dfrobot_led_pin);
+    //! led stuff
 
     // while (1)
     // {
@@ -391,8 +393,8 @@ void app_main(void)
 
     // vTaskDelay(1000 / portTICK_RATE_MS);
 
-    rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
-    rtc_gpio_hold_en(dfrobot_led_pin);
+    // rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
+    // rtc_gpio_hold_en(dfrobot_led_pin);
 
     /*
     //! this works vvvvvv
@@ -417,6 +419,29 @@ void app_main(void)
     esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
     if (cause != ESP_SLEEP_WAKEUP_ULP)
     {
+        //! led stuff
+        // gpio_config_t io_conf;
+        // //disable interrupt
+        // io_conf.intr_type = GPIO_INTR_DISABLE;
+        // //set as output mode
+        // // io_conf.mode = GPIO_MODE_DISABLE;
+        // io_conf.mode = GPIO_MODE_OUTPUT;
+        // // io_conf.mode = GPIO_MODE_INPUT;
+        // //bit mask of the pins that you want to set,e.g.GPIO18/19
+        // io_conf.pin_bit_mask = 1ULL << dfrobot_led_pin; // only one pin, otherwise look at this eg: https://github.com/espressif/esp-idf/blob/a20df743f1c51e6d65b021ed2ffd3081a2feec64/examples/peripherals/gpio/generic_gpio/main/gpio_example_main.c
+
+        // //disable pull-down mode
+        // io_conf.pull_down_en = 0;
+        // // io_conf.pull_down_en = 1;
+        // //disable pull-up mode
+        // io_conf.pull_up_en = 0;
+        // //configure GPIO with the given settings
+        // gpio_config(&io_conf);
+
+        // // gpio_set_level(dfrobot_led_pin, 0);
+        // // gpio_hold_en(dfrobot_led_pin);
+        // // gpio_deep_sleep_hold_en();
+        //! led stuff
 
         printf("Not ULP wakeup, initializing ULP\n");
         init_ulp_program();
@@ -424,6 +449,8 @@ void app_main(void)
     }
     else
     {
+        // gpio_set_level(dfrobot_led_pin, 0);
+        // gpio_hold_en(dfrobot_led_pin);
         //! batt_dev_1 stuff
 
         // Initialize NVS
@@ -473,6 +500,10 @@ void app_main(void)
     // rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
     // rtc_gpio_hold_en(dfrobot_led_pin);
 
+    //!
+    rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
+    rtc_gpio_hold_en(dfrobot_led_pin);
+    //!
     esp_deep_sleep_start();
 }
 
