@@ -64,6 +64,7 @@ extern const uint8_t ulp_main_bin_start[] asm("_binary_ulp_main_bin_start");
 extern const uint8_t ulp_main_bin_end[] asm("_binary_ulp_main_bin_end");
 
 gpio_num_t one_wire_port = GPIO_NUM_32;
+gpio_num_t dfrobot_led_pin = GPIO_NUM_2;
 
 static void init_ulp_program();
 
@@ -329,9 +330,94 @@ void app_main(void)
 {
     esp_log_level_set(TAG, ESP_LOG_INFO);
 
+    gpio_config_t io_conf;
+    //disable interrupt
+    io_conf.intr_type = GPIO_INTR_DISABLE;
+    //set as output mode
+    // io_conf.mode = GPIO_MODE_DISABLE;
+    io_conf.mode = GPIO_MODE_OUTPUT;
+    // io_conf.mode = GPIO_MODE_INPUT;
+    //bit mask of the pins that you want to set,e.g.GPIO18/19
+    io_conf.pin_bit_mask = 1ULL << dfrobot_led_pin; // only one pin, otherwise look at this eg: https://github.com/espressif/esp-idf/blob/a20df743f1c51e6d65b021ed2ffd3081a2feec64/examples/peripherals/gpio/generic_gpio/main/gpio_example_main.c
+
+    //disable pull-down mode
+    io_conf.pull_down_en = 0;
+    // io_conf.pull_down_en = 1;
+    //disable pull-up mode
+    io_conf.pull_up_en = 0;
+    //configure GPIO with the given settings
+    gpio_config(&io_conf);
+
+    gpio_set_level(dfrobot_led_pin, 0);
+    gpio_hold_en(dfrobot_led_pin);
+
+    // while (1)
+    // {
+    //     printf("working??\n");
+    //     vTaskDelay(1000 / portTICK_RATE_MS);
+    // }
+
+    //     vTaskDelay(1000 / portTICK_RATE_MS);
+    //     printf("setting low\n");
+    //     gpio_set_level(dfrobot_led_pin, 0);
+    //     vTaskDelay(1000 / portTICK_RATE_MS);
+    //     printf("setting HIGH\n");
+    //     gpio_set_level(dfrobot_led_pin, 1);
+
+    // esp_err_t res = rtc_gpio_isolate(dfrobot_led_pin);
+    // gpio_reset_pin(dfrobot_led_pin);
+    // esp_err_t res = rtc_gpio_pulldown_en(dfrobot_led_pin);
+    // esp_err_t res = rtc_gpio_set_level(dfrobot_led_pin, 1); //GPIO_NUM_2
+    // rtc_gpio_set_level(dfrobot_led_pin, 1); //GPIO_NUM_2
+    // // vTaskDelay(1000000 / portTICK_RATE_MS);
+    // vTaskDelay(1000000 / portTICK_RATE_MS);
+    // rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
+    // vTaskDelay(1000000 / portTICK_RATE_MS);
+    // rtc_gpio_set_level(dfrobot_led_pin, 1); //GPIO_NUM_2
+    // vTaskDelay(1000000 / portTICK_RATE_MS);
+    // rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
+    // vTaskDelay(1000000 / portTICK_RATE_MS);
+    // while (1)
+    // {
+    //     printf("LOW\n");
+    //     gpio_reset_pin(dfrobot_led_pin);
+    //     rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
+    //     vTaskDelay(1000 / portTICK_RATE_MS);
+    //     printf("high\n");
+    //     gpio_reset_pin(dfrobot_led_pin);
+    //     rtc_gpio_set_level(dfrobot_led_pin, 1); //GPIO_NUM_2
+    //     vTaskDelay(1000 / portTICK_RATE_MS);
+    // }
+
+    // vTaskDelay(1000 / portTICK_RATE_MS);
+
+    rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
+    rtc_gpio_hold_en(dfrobot_led_pin);
+
+    /*
+    //! this works vvvvvv
+    rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
+    rtc_gpio_hold_en(dfrobot_led_pin);
+    esp_deep_sleep_start();
+    //! this works ^^^^^^^
+    */
+    // vTaskDelay(1000 / portTICK_RATE_MS);
+    // printf("res: %d\n", res);
+
+    // while (1)
+    // {
+    //     vTaskDelay(1000 / portTICK_RATE_MS);
+    //     printf("setting low\n");
+    //     gpio_set_level(dfrobot_led_pin, 0);
+    //     vTaskDelay(1000 / portTICK_RATE_MS);
+    //     printf("setting HIGH\n");
+    //     gpio_set_level(dfrobot_led_pin, 1);
+    // }
+
     esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
     if (cause != ESP_SLEEP_WAKEUP_ULP)
     {
+
         printf("Not ULP wakeup, initializing ULP\n");
         init_ulp_program();
         p_time = 0;
@@ -373,6 +459,20 @@ void app_main(void)
     ESP_LOGI(TAG, "p_time = %d\nSleeping.", p_time);
     printf("p_time = %d\nSleeping.\n", p_time);
 
+    // rtc_gpio_hold_dis(dfrobot_led_pin);
+    // esp_err_t res = rtc_gpio_isolate(dfrobot_led_pin);
+    // gpio_reset_pin(dfrobot_led_pin);
+    // esp_err_t res = rtc_gpio_pulldown_en(dfrobot_led_pin);
+    // esp_err_t res = rtc_gpio_set_level(dfrobot_led_pin, 1); //GPIO_NUM_2
+    // rtc_gpio_set_level(dfrobot_led_pin, 1); //GPIO_NUM_2
+    // vTaskDelay(1000 / portTICK_RATE_MS);
+    // rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
+    // rtc_gpio_hold_en(dfrobot_led_pin);
+    // printf("res: %d\n", res);
+
+    // rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
+    // rtc_gpio_hold_en(dfrobot_led_pin);
+
     esp_deep_sleep_start();
 }
 
@@ -392,6 +492,14 @@ static void init_ulp_program()
      * Note that the ULP reads only the lower 16 bits of these variables.
      */
 
+    // rtc_gpio_init(dfrobot_led_pin); //RTC_GPIO12
+    // rtc_gpio_set_direction(dfrobot_led_pin, RTC_GPIO_MODE_OUTPUT_ONLY);
+    // rtc_gpio_set_direction(dfrobot_led_pin, RTC_GPIO_MODE_DISABLED);
+    // rtc_gpio_pulldown_en(dfrobot_led_pin);
+    // rtc_gpio_pulldown_en(dfrobot_led_pin);
+    // rtc_gpio_isolate(dfrobot_led_pin);
+    // rtc_gpio_set_level(dfrobot_led_pin, 0);
+
     rtc_gpio_init(one_wire_port);
     // ESP-IDF has an typo error on RTC_GPIO_MODE_INPUT_OUTUT, missing P, fixed
     // Open drain mode(1-wire/ I2C), should get it to INPUT_ONLY
@@ -407,4 +515,7 @@ static void init_ulp_program()
     /* Start the program */
     err = ulp_run(&ulp_entry - RTC_SLOW_MEM);
     ESP_ERROR_CHECK(err);
+
+    // esp_err_t res = rtc_gpio_isolate(dfrobot_led_pin);
+    // printf("res: %d\n", res);
 }
