@@ -1,5 +1,10 @@
+//TODO -> send signal strength as well... (RSSI)
+
 // derrived from ds18b20-ulp-2, added batt_dev_1 code
 // https://github.com/fhng/ESP32-ULP-1-Wire.git
+
+// DFROBOT board
+// https://wiki.dfrobot.com/FireBeetle_ESP32_IOT_Microcontroller(V3.0)__Supports_Wi-Fi_&_Bluetooth__SKU__DFR0478
 
 /* BATTERY POWERED ESP32
 
@@ -12,6 +17,7 @@
 // SHIFT + ALT + F
 
 #define MEASUREMENT_INTERVAL_SECONDS 9 // should subtract +-0.75 seconds for temp conversion?
+// #define MEASUREMENT_INTERVAL_SECONDS 300 // should subtract +-0.75 seconds for temp conversion?
 
 #include <stdio.h>
 #include "esp_sleep.h"
@@ -63,8 +69,10 @@ RTC_DATA_ATTR uint32_t p_time;
 extern const uint8_t ulp_main_bin_start[] asm("_binary_ulp_main_bin_start");
 extern const uint8_t ulp_main_bin_end[] asm("_binary_ulp_main_bin_end");
 
-gpio_num_t one_wire_port = GPIO_NUM_32;
+// gpio_num_t one_wire_port = GPIO_NUM_32;
+gpio_num_t one_wire_port = GPIO_NUM_27;
 gpio_num_t dfrobot_led_pin = GPIO_NUM_2;
+gpio_num_t dfrobot_batv_pin = GPIO_NUM_36;
 
 static void init_ulp_program();
 
@@ -339,9 +347,22 @@ void app_main(void)
     io_conf.pull_up_en = 0;
     gpio_config(&io_conf);
     // set led low and hold (not sure how much hold helps...)
+
+    gpio_set_level(dfrobot_led_pin, 1);
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
     gpio_set_level(dfrobot_led_pin, 0);
     gpio_hold_en(dfrobot_led_pin);
     //* end led stuff
+
+    //* batv adc stuff
+    gpio_config_t io_conf_batv;
+    io_conf_batv.intr_type = GPIO_INTR_DISABLE;
+    io_conf_batv.mode = GPIO_MODE_INPUT;
+    io_conf_batv.pin_bit_mask = 1ULL << dfrobot_batv_pin; // only one pin, otherwise look at this eg: https://github.com/espressif/esp-idf/blob/a20df743f1c51e6d65b021ed2ffd3081a2feec64/examples/peripherals/gpio/generic_gpio/main/gpio_example_main.c
+    io_conf_batv.pull_down_en = 0;
+    io_conf_batv.pull_up_en = 0;
+    gpio_config(&io_conf_batv);
+    //* end batv adc stuff
 
     esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
     if (cause != ESP_SLEEP_WAKEUP_ULP)

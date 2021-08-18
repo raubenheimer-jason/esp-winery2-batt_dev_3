@@ -4,6 +4,11 @@
 
 #include "stack.S"
 
+/* RTC_GPIO_9 maps to GPIO 32 */
+; .macro GPIO_read
+	; READ_RTC_REG(RTC_GPIO_IN_REG, RTC_GPIO_IN_NEXT_S + 9, 1)
+; .endm
+
 /* RTC_GPIO17 maps to GPIO 27 */
 .macro GPIO_read
 	READ_RTC_REG(RTC_GPIO_IN_REG, RTC_GPIO_IN_NEXT_S + 17, 1)
@@ -11,20 +16,32 @@
 
 /* Set pin high-impedance state (input mode) */
 /* high imedance pin has an indeterminate state. it is nether high or low which is also commonly referred as "floating" or "tri-stated". To set it to high or low, it has to be driven by an external source */
+; .macro GPIO_H
+; 	WRITE_RTC_REG(RTC_GPIO_ENABLE_W1TC_REG, RTC_GPIO_ENABLE_W1TC_S + 9, 1, 1)
+; .endm
 .macro GPIO_H
 	WRITE_RTC_REG(RTC_GPIO_ENABLE_W1TC_REG, RTC_GPIO_ENABLE_W1TC_S + 17, 1, 1)
 .endm
 
 /* Output mode */
+; .macro GPIO_L
+; 	WRITE_RTC_REG(RTC_GPIO_ENABLE_W1TS_REG, RTC_GPIO_ENABLE_W1TS_S + 9, 1, 1)
+; .endm
 .macro GPIO_L
 	WRITE_RTC_REG(RTC_GPIO_ENABLE_W1TS_REG, RTC_GPIO_ENABLE_W1TS_S + 17, 1, 1)
 .endm
 
 /* These two marco for set bus high and set low when GPIO_L is called, enable W1TS. */
+; .macro GPIO_high
+; 	WRITE_RTC_REG(RTC_GPIO_OUT_W1TS_REG, RTC_GPIO_OUT_DATA_W1TS_S + 9, 1, 1)
+; .endm
 .macro GPIO_high
 	WRITE_RTC_REG(RTC_GPIO_OUT_W1TS_REG, RTC_GPIO_OUT_DATA_W1TS_S + 17, 1, 1)
 .endm
 
+; .macro GPIO_low
+; 	WRITE_RTC_REG(RTC_GPIO_OUT_W1TC_REG, RTC_GPIO_OUT_DATA_W1TC_S + 9, 1, 1)
+; .endm
 .macro GPIO_low
 	WRITE_RTC_REG(RTC_GPIO_OUT_W1TC_REG, RTC_GPIO_OUT_DATA_W1TC_S + 17, 1, 1)
 .endm
