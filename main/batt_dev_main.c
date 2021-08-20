@@ -62,6 +62,58 @@ static void example_espnow_deinit(example_espnow_send_param_t *send_param);
 
 SemaphoreHandle_t can_sleep_sema = NULL;
 
+// to read signal strength (for rssi)
+
+// https://esp32.com/viewtopic.php?t=5078
+// https://esp32.com/viewtopic.php?t=13889
+void promiscuous_rx_cb(void *buf, wifi_promiscuous_pkt_type_t type);
+
+typedef struct
+{
+    unsigned frame_ctrl : 16;
+    unsigned duration_id : 16;
+    uint8_t addr1[6]; /* receiver address */
+    uint8_t addr2[6]; /* sender address */
+    uint8_t addr3[6]; /* filtering address */
+    unsigned sequence_ctrl : 16;
+    uint8_t addr4[6]; /* optional */
+} wifi_ieee80211_mac_hdr_t;
+
+typedef struct
+{
+    wifi_ieee80211_mac_hdr_t hdr;
+    uint8_t payload[0]; /* network data ended with 4 bytes csum (CRC32) */
+} wifi_ieee80211_packet_t;
+
+void promiscuous_rx_cb(void *buf, wifi_promiscuous_pkt_type_t type)
+{
+
+    // All espnow traffic uses action frames which are a subtype of the mgmnt frames so filter out everything else.
+    if (type != WIFI_PKT_MGMT)
+    {
+        // printf("---------------------------------------------------------> wrong type??\n");
+        return;
+    }
+
+    // printf("---------------------------------------------------------> okay...\n");
+
+    // static const uint8_t ACTION_SUBTYPE = 0xd0;
+    // static const uint8_t ESPRESSIF_OUI[] = {0x18, 0xfe, 0x34};
+
+    const wifi_promiscuous_pkt_t *ppkt = (wifi_promiscuous_pkt_t *)buf;
+    // const wifi_ieee80211_packet_t *ipkt = (wifi_ieee80211_packet_t *)ppkt->payload;
+    // const wifi_ieee80211_mac_hdr_t *hdr = &ipkt->hdr;
+
+    // Only continue processing if this is an action frame containing the Espressif OUI.
+    // if ((ACTION_SUBTYPE == (hdr->frame_ctrl & 0xFF)) && (memcmp(hdr->oui, ESPRESSIF_OUI, 3) == 0))
+    // if (ACTION_SUBTYPE == (hdr->frame_ctrl & 0xFF))
+    // {
+    int rssi = ppkt->rx_ctrl.rssi;
+    printf("rssi: %d\n", rssi);
+    // }
+}
+// end to read signal strength (for rssi)
+
 //! end batt_dev_1 stuff
 
 RTC_DATA_ATTR uint32_t p_time;
@@ -86,6 +138,13 @@ static void example_wifi_init(void)
     ESP_ERROR_CHECK(esp_wifi_init(&cfg));
     ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
     ESP_ERROR_CHECK(esp_wifi_set_mode(ESPNOW_WIFI_MODE));
+
+    // to read signal strength
+    esp_wifi_set_promiscuous(true);
+    // esp_wifi_set_promiscuous_rx_cb(&promiscuous_rx_cb);
+    esp_wifi_set_promiscuous_rx_cb(&promiscuous_rx_cb);
+    // end to read signal strength
+
     ESP_ERROR_CHECK(esp_wifi_start());
 
 #if CONFIG_ESPNOW_ENABLE_LONG_RANGE
@@ -409,6 +468,8 @@ void app_main(void)
     // set blue led off when in deep sleep
     rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
     rtc_gpio_hold_en(dfrobot_led_pin);
+
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
 
     esp_deep_sleep_start();
 }
