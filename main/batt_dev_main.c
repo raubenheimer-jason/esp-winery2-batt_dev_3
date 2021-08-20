@@ -66,7 +66,7 @@ SemaphoreHandle_t can_sleep_sema = NULL;
 
 //! end batt_dev_1 stuff
 
-RTC_DATA_ATTR uint32_t p_time;
+RTC_DATA_ATTR uint32_t ptime_ms;
 
 extern const uint8_t ulp_main_bin_start[] asm("_binary_ulp_main_bin_start");
 extern const uint8_t ulp_main_bin_end[] asm("_binary_ulp_main_bin_end");
@@ -191,7 +191,7 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
 
     // int32_t temp = 2155;     // 21.55 deg c // old dummy temp variable
     uint32_t temp = ulp_temperatureC & UINT16_MAX; // need to divide by 16 to get temp in deg. C
-    // uint32_t ptime = 158001;                       // 158,001 milli seconds // old dummy p_time variable
+    // uint32_t ptime = 158001;                       // 158,001 milli seconds // old dummy ptime_ms variable
     // uint32_t batmv = 378; // 3.78 V
     // int batmv = adc1_get_raw(ADC1_CHANNEL_0);
     int adc_val = adc1_get_raw(ADC1_CHANNEL_0);
@@ -215,10 +215,10 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
     // PREVIOUS program time
     for (int i = 4; i < 8; i++)
     {
-        buf->payload[i] = ((p_time >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+        buf->payload[i] = ((ptime_ms >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
-    ESP_LOGI(TAG, "p_time: %d", p_time);
-    printf("p_time: %d\n", p_time);
+    ESP_LOGI(TAG, "ptime_ms: %d", ptime_ms);
+    printf("ptime_ms: %d\n", ptime_ms);
 
     // bat voltage
     for (int i = 8; i < 12; i++)
@@ -385,7 +385,7 @@ void app_main(void)
     {
         printf("Not ULP wakeup, initializing ULP\n");
         init_ulp_program();
-        p_time = 0;
+        ptime_ms = 0;
     }
     else
     {
@@ -417,10 +417,10 @@ void app_main(void)
     ESP_ERROR_CHECK(ulp_set_wakeup_period(0, MEASUREMENT_INTERVAL_SECONDS * 1000000));
     ESP_ERROR_CHECK(esp_sleep_enable_ulp_wakeup());
 
-    p_time = (uint32_t)esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
+    ptime_ms = (uint32_t)esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
 
-    ESP_LOGI(TAG, "p_time = %d\nSleeping.", p_time);
-    printf("p_time = %d\nSleeping.\n", p_time);
+    ESP_LOGI(TAG, "ptime_ms = %d\nSleeping.", ptime_ms);
+    printf("ptime_ms = %d\nSleeping.\n", ptime_ms);
 
     // set blue led off when in deep sleep
     rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
