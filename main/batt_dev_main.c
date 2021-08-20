@@ -364,14 +364,14 @@ void app_main(void)
     gpio_hold_en(dfrobot_led_pin);
     //* end led stuff
 
-    //* batmv adc stuff
-    gpio_config_t io_conf_batmv;
-    io_conf_batmv.intr_type = GPIO_INTR_DISABLE;
-    io_conf_batmv.mode = GPIO_MODE_INPUT;
-    io_conf_batmv.pin_bit_mask = 1ULL << dfrobot_batmv_pin; // only one pin, otherwise look at this eg: https://github.com/espressif/esp-idf/blob/a20df743f1c51e6d65b021ed2ffd3081a2feec64/examples/peripherals/gpio/generic_gpio/main/gpio_example_main.c
-    io_conf_batmv.pull_down_en = 0;
-    io_conf_batmv.pull_up_en = 0;
-    gpio_config(&io_conf_batmv);
+    // //* batmv adc stuff
+    // gpio_config_t io_conf_batmv;
+    // io_conf_batmv.intr_type = GPIO_INTR_DISABLE;
+    // io_conf_batmv.mode = GPIO_MODE_INPUT;
+    // io_conf_batmv.pin_bit_mask = 1ULL << dfrobot_batmv_pin; // only one pin, otherwise look at this eg: https://github.com/espressif/esp-idf/blob/a20df743f1c51e6d65b021ed2ffd3081a2feec64/examples/peripherals/gpio/generic_gpio/main/gpio_example_main.c
+    // io_conf_batmv.pull_down_en = 0;
+    // io_conf_batmv.pull_up_en = 0;
+    // gpio_config(&io_conf_batmv);
 
     adc1_config_width(ADC_WIDTH_BIT_12);
     adc1_config_channel_atten(ADC1_CHANNEL_0, ADC_ATTEN_DB_11);
