@@ -71,10 +71,8 @@ RTC_DATA_ATTR uint32_t ptime_ms;
 extern const uint8_t ulp_main_bin_start[] asm("_binary_ulp_main_bin_start");
 extern const uint8_t ulp_main_bin_end[] asm("_binary_ulp_main_bin_end");
 
-// gpio_num_t one_wire_port = GPIO_NUM_32;
 gpio_num_t one_wire_port = GPIO_NUM_27;
 gpio_num_t dfrobot_led_pin = GPIO_NUM_2;
-gpio_num_t dfrobot_batmv_pin = GPIO_NUM_36;
 
 static void init_ulp_program();
 
@@ -188,19 +186,11 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
     temperatureC = ulp_temperatureC & UINT16_MAX;
     ESP_LOGI(TAG, "temp: %.4f", temperatureC / 16);
     printf("temp: %.4f\n", temperatureC / 16);
-
-    // int32_t temp = 2155;     // 21.55 deg c // old dummy temp variable
     uint32_t temp = ulp_temperatureC & UINT16_MAX; // need to divide by 16 to get temp in deg. C
-    // uint32_t ptime = 158001;                       // 158,001 milli seconds // old dummy ptime_ms variable
-    // uint32_t batmv = 378; // 3.78 V
-    // int batmv = adc1_get_raw(ADC1_CHANNEL_0);
+
+    // get batmv value here
     int adc_val = adc1_get_raw(ADC1_CHANNEL_0);
-    float batmv_f = (adc_val * 3300.0 / 4095.0) * 2; // x2 because there is a voltage divider
-
-    int batmv = (int)batmv_f;
-
-    printf("batmv_f: %f\n", batmv_f);
-    printf("batmv: %d\n", batmv);
+    int batmv = (int)(adc_val * 3300.0 / 4095.0) * 2; // x2 because there is a voltage divider
 
     // reserved for crc??
     // send_param->buffer[0] = 1;
@@ -365,19 +355,8 @@ void app_main(void)
     //* end led stuff
 
     // //* batmv adc stuff
-    // gpio_config_t io_conf_batmv;
-    // io_conf_batmv.intr_type = GPIO_INTR_DISABLE;
-    // io_conf_batmv.mode = GPIO_MODE_INPUT;
-    // io_conf_batmv.pin_bit_mask = 1ULL << dfrobot_batmv_pin; // only one pin, otherwise look at this eg: https://github.com/espressif/esp-idf/blob/a20df743f1c51e6d65b021ed2ffd3081a2feec64/examples/peripherals/gpio/generic_gpio/main/gpio_example_main.c
-    // io_conf_batmv.pull_down_en = 0;
-    // io_conf_batmv.pull_up_en = 0;
-    // gpio_config(&io_conf_batmv);
-
     adc1_config_width(ADC_WIDTH_BIT_12);
-    adc1_config_channel_atten(ADC1_CHANNEL_0, ADC_ATTEN_DB_11);
-    // int val = adc1_get_raw(ADC1_CHANNEL_0);
-
-    // printf("bat_val: %d\n", val);
+    adc1_config_channel_atten(ADC1_CHANNEL_0, ADC_ATTEN_DB_11); // GPIO_NUM_36
     //* end batmv adc stuff
 
     esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
