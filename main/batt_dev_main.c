@@ -50,6 +50,8 @@
 #include "esp_crc.h"
 #include "espnow_batt_dev.h"
 
+#include <driver/adc.h> // for reading bat voltage
+
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
 static const char *TAG = "espnow_batt_dev";
@@ -62,58 +64,6 @@ static void example_espnow_deinit(example_espnow_send_param_t *send_param);
 
 SemaphoreHandle_t can_sleep_sema = NULL;
 
-// to read signal strength (for rssi)
-
-// https://esp32.com/viewtopic.php?t=5078
-// https://esp32.com/viewtopic.php?t=13889
-void promiscuous_rx_cb(void *buf, wifi_promiscuous_pkt_type_t type);
-
-typedef struct
-{
-    unsigned frame_ctrl : 16;
-    unsigned duration_id : 16;
-    uint8_t addr1[6]; /* receiver address */
-    uint8_t addr2[6]; /* sender address */
-    uint8_t addr3[6]; /* filtering address */
-    unsigned sequence_ctrl : 16;
-    uint8_t addr4[6]; /* optional */
-} wifi_ieee80211_mac_hdr_t;
-
-typedef struct
-{
-    wifi_ieee80211_mac_hdr_t hdr;
-    uint8_t payload[0]; /* network data ended with 4 bytes csum (CRC32) */
-} wifi_ieee80211_packet_t;
-
-void promiscuous_rx_cb(void *buf, wifi_promiscuous_pkt_type_t type)
-{
-
-    // All espnow traffic uses action frames which are a subtype of the mgmnt frames so filter out everything else.
-    if (type != WIFI_PKT_MGMT)
-    {
-        // printf("---------------------------------------------------------> wrong type??\n");
-        return;
-    }
-
-    // printf("---------------------------------------------------------> okay...\n");
-
-    // static const uint8_t ACTION_SUBTYPE = 0xd0;
-    // static const uint8_t ESPRESSIF_OUI[] = {0x18, 0xfe, 0x34};
-
-    const wifi_promiscuous_pkt_t *ppkt = (wifi_promiscuous_pkt_t *)buf;
-    // const wifi_ieee80211_packet_t *ipkt = (wifi_ieee80211_packet_t *)ppkt->payload;
-    // const wifi_ieee80211_mac_hdr_t *hdr = &ipkt->hdr;
-
-    // Only continue processing if this is an action frame containing the Espressif OUI.
-    // if ((ACTION_SUBTYPE == (hdr->frame_ctrl & 0xFF)) && (memcmp(hdr->oui, ESPRESSIF_OUI, 3) == 0))
-    // if (ACTION_SUBTYPE == (hdr->frame_ctrl & 0xFF))
-    // {
-    int rssi = ppkt->rx_ctrl.rssi;
-    printf("rssi: %d\n", rssi);
-    // }
-}
-// end to read signal strength (for rssi)
-
 //! end batt_dev_1 stuff
 
 RTC_DATA_ATTR uint32_t p_time;
@@ -124,7 +74,7 @@ extern const uint8_t ulp_main_bin_end[] asm("_binary_ulp_main_bin_end");
 // gpio_num_t one_wire_port = GPIO_NUM_32;
 gpio_num_t one_wire_port = GPIO_NUM_27;
 gpio_num_t dfrobot_led_pin = GPIO_NUM_2;
-gpio_num_t dfrobot_batv_pin = GPIO_NUM_36;
+gpio_num_t dfrobot_batmv_pin = GPIO_NUM_36;
 
 static void init_ulp_program();
 
@@ -138,13 +88,6 @@ static void example_wifi_init(void)
     ESP_ERROR_CHECK(esp_wifi_init(&cfg));
     ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
     ESP_ERROR_CHECK(esp_wifi_set_mode(ESPNOW_WIFI_MODE));
-
-    // to read signal strength
-    esp_wifi_set_promiscuous(true);
-    // esp_wifi_set_promiscuous_rx_cb(&promiscuous_rx_cb);
-    esp_wifi_set_promiscuous_rx_cb(&promiscuous_rx_cb);
-    // end to read signal strength
-
     ESP_ERROR_CHECK(esp_wifi_start());
 
 #if CONFIG_ESPNOW_ENABLE_LONG_RANGE
@@ -249,7 +192,15 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
     // int32_t temp = 2155;     // 21.55 deg c // old dummy temp variable
     uint32_t temp = ulp_temperatureC & UINT16_MAX; // need to divide by 16 to get temp in deg. C
     // uint32_t ptime = 158001;                       // 158,001 milli seconds // old dummy p_time variable
-    uint32_t batv = 378; // 3.78 V
+    // uint32_t batmv = 378; // 3.78 V
+    // int batmv = adc1_get_raw(ADC1_CHANNEL_0);
+    int adc_val = adc1_get_raw(ADC1_CHANNEL_0);
+    float batmv_f = (adc_val * 3300.0 / 4095.0) * 2; // x2 because there is a voltage divider
+
+    int batmv = (int)batmv_f;
+
+    printf("batmv_f: %f\n", batmv_f);
+    printf("batmv: %d\n", batmv);
 
     // reserved for crc??
     // send_param->buffer[0] = 1;
@@ -272,10 +223,10 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
     // bat voltage
     for (int i = 8; i < 12; i++)
     {
-        buf->payload[i] = ((batv >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+        buf->payload[i] = ((batmv >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
-    ESP_LOGI(TAG, "batv: %d", batv);
-    printf("batv: %d\n", batv);
+    ESP_LOGI(TAG, "batmv: %d", batmv);
+    printf("batmv: %d\n", batmv);
 
     buf->crc = esp_crc16_le(UINT16_MAX, (uint8_t const *)buf, send_param->len);
 
@@ -413,15 +364,21 @@ void app_main(void)
     gpio_hold_en(dfrobot_led_pin);
     //* end led stuff
 
-    //* batv adc stuff
-    gpio_config_t io_conf_batv;
-    io_conf_batv.intr_type = GPIO_INTR_DISABLE;
-    io_conf_batv.mode = GPIO_MODE_INPUT;
-    io_conf_batv.pin_bit_mask = 1ULL << dfrobot_batv_pin; // only one pin, otherwise look at this eg: https://github.com/espressif/esp-idf/blob/a20df743f1c51e6d65b021ed2ffd3081a2feec64/examples/peripherals/gpio/generic_gpio/main/gpio_example_main.c
-    io_conf_batv.pull_down_en = 0;
-    io_conf_batv.pull_up_en = 0;
-    gpio_config(&io_conf_batv);
-    //* end batv adc stuff
+    //* batmv adc stuff
+    gpio_config_t io_conf_batmv;
+    io_conf_batmv.intr_type = GPIO_INTR_DISABLE;
+    io_conf_batmv.mode = GPIO_MODE_INPUT;
+    io_conf_batmv.pin_bit_mask = 1ULL << dfrobot_batmv_pin; // only one pin, otherwise look at this eg: https://github.com/espressif/esp-idf/blob/a20df743f1c51e6d65b021ed2ffd3081a2feec64/examples/peripherals/gpio/generic_gpio/main/gpio_example_main.c
+    io_conf_batmv.pull_down_en = 0;
+    io_conf_batmv.pull_up_en = 0;
+    gpio_config(&io_conf_batmv);
+
+    adc1_config_width(ADC_WIDTH_BIT_12);
+    adc1_config_channel_atten(ADC1_CHANNEL_0, ADC_ATTEN_DB_11);
+    // int val = adc1_get_raw(ADC1_CHANNEL_0);
+
+    // printf("bat_val: %d\n", val);
+    //* end batmv adc stuff
 
     esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
     if (cause != ESP_SLEEP_WAKEUP_ULP)
@@ -468,8 +425,6 @@ void app_main(void)
     // set blue led off when in deep sleep
     rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
     rtc_gpio_hold_en(dfrobot_led_pin);
-
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
 
     esp_deep_sleep_start();
 }
