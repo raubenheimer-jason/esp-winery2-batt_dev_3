@@ -72,7 +72,8 @@ extern const uint8_t ulp_main_bin_start[] asm("_binary_ulp_main_bin_start");
 extern const uint8_t ulp_main_bin_end[] asm("_binary_ulp_main_bin_end");
 
 gpio_num_t one_wire_port = GPIO_NUM_27;
-gpio_num_t dfrobot_led_pin = GPIO_NUM_2;
+
+gpio_num_t led_pin = GPIO_NUM_2; // DFROBOT
 
 static void init_ulp_program();
 
@@ -342,16 +343,16 @@ void app_main(void)
     gpio_config_t io_conf;
     io_conf.intr_type = GPIO_INTR_DISABLE;
     io_conf.mode = GPIO_MODE_OUTPUT;
-    io_conf.pin_bit_mask = 1ULL << dfrobot_led_pin; // only one pin, otherwise look at this eg: https://github.com/espressif/esp-idf/blob/a20df743f1c51e6d65b021ed2ffd3081a2feec64/examples/peripherals/gpio/generic_gpio/main/gpio_example_main.c
+    io_conf.pin_bit_mask = 1ULL << led_pin; // only one pin, otherwise look at this eg: https://github.com/espressif/esp-idf/blob/a20df743f1c51e6d65b021ed2ffd3081a2feec64/examples/peripherals/gpio/generic_gpio/main/gpio_example_main.c
     io_conf.pull_down_en = 0;
     io_conf.pull_up_en = 0;
     gpio_config(&io_conf);
     // set led low and hold (not sure how much hold helps...)
 
-    gpio_set_level(dfrobot_led_pin, 1);
+    gpio_set_level(led_pin, 1);
     vTaskDelay(1000 / portTICK_PERIOD_MS);
-    gpio_set_level(dfrobot_led_pin, 0);
-    gpio_hold_en(dfrobot_led_pin);
+    gpio_set_level(led_pin, 0);
+    gpio_hold_en(led_pin);
     //* end led stuff
 
     // //* batmv adc stuff
@@ -402,8 +403,8 @@ void app_main(void)
     printf("ptime_ms = %d\nSleeping.\n", ptime_ms);
 
     // set blue led off when in deep sleep
-    rtc_gpio_set_level(dfrobot_led_pin, 0); //GPIO_NUM_2
-    rtc_gpio_hold_en(dfrobot_led_pin);
+    rtc_gpio_set_level(led_pin, 0); //GPIO_NUM_2
+    rtc_gpio_hold_en(led_pin);
 
     esp_deep_sleep_start();
 }
