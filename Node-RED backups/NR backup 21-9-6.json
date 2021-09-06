@@ -1,0 +1,3935 @@
+[
+    {
+        "id": "d5743cfa.f2bf3",
+        "type": "tab",
+        "label": "Counting-Grand_Forming",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "9bd3fc40.b3791",
+        "type": "tab",
+        "label": "Telegram_commands",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "3ce58505.dc163a",
+        "type": "tab",
+        "label": "old_telegram",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "4e6d1ae6.b0fdb4",
+        "type": "tab",
+        "label": "testing mqtt",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "885ca21a.80cba",
+        "type": "tab",
+        "label": "mqtt esp32",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d4258d3b.8620a",
+        "type": "tab",
+        "label": "testing dash",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "5fa8cdfb.71d034",
+        "type": "tab",
+        "label": "grand forming - dash",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "44de531d.d7524c",
+        "type": "tab",
+        "label": "telegram demo",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "ef6b631c.463c9",
+        "type": "telegram bot",
+        "botname": "Toi Company",
+        "usernames": "",
+        "chatids": "1844668378,1141720956",
+        "baseapiurl": "https://api.telegram.org",
+        "updatemode": "polling",
+        "pollinterval": "1",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": true
+    },
+    {
+        "id": "d646ca3f.430208",
+        "type": "influxdb",
+        "hostname": "192.168.1.145",
+        "port": "8086",
+        "protocol": "http",
+        "database": "temp_data",
+        "name": "temp_data",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.8-flux",
+        "url": "http://192.168.1.106:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "6ad6735e.18155c",
+        "type": "influxdb",
+        "hostname": "192.168.1.145",
+        "port": "8086",
+        "protocol": "http",
+        "database": "sensor_data",
+        "name": "query_sensor_data",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "f46031cc.a4c45",
+        "type": "mqtt-broker",
+        "name": "my_mqtt_broker",
+        "broker": "192.168.1.106",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ef52cbc7.6dc568",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f8aeeff3.77773",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "8c49191b.e59cb8",
+        "type": "ui_group",
+        "name": "ui-group",
+        "tab": "ef52cbc7.6dc568",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "dec35e3b.b091",
+        "type": "remote-config",
+        "name": "Node-RED UI",
+        "host": "localhost",
+        "protocol": "http",
+        "port": "1880",
+        "baseurl": "/ui",
+        "instancehash": "bp6gjro1nz99wt0d5f62o282dkxihg9bls8fsn8chnj2thuhtse3rx2l7cqjfq6b",
+        "server": "nodered02.remote-red.com",
+        "region": "de"
+    },
+    {
+        "id": "c3670dce.18aa8",
+        "type": "telegram bot",
+        "botname": "HeinzBot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": true
+    },
+    {
+        "id": "593425c.06d04dc",
+        "type": "telegram bot",
+        "botname": "Toi - Delheim",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "1",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": true
+    },
+    {
+        "id": "1f68bbcb.55f424",
+        "type": "influxdb",
+        "hostname": "192.168.1.106",
+        "port": "8086",
+        "protocol": "http",
+        "database": "temp_data",
+        "name": "query_temp_data",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "471e79e8.963258",
+        "type": "websocket-listener",
+        "path": "",
+        "wholemsg": "false"
+    },
+    {
+        "id": "4351e1fb.05b13",
+        "type": "serial-port",
+        "serialport": "/dev/ttyUSB1",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "@",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": ".",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "da7a7fcd.5ae67",
+        "type": "pi-gpiod in",
+        "z": "d5743cfa.f2bf3",
+        "name": "sensor_1",
+        "host": "172.17.0.1",
+        "port": 8888,
+        "pin": "18",
+        "intype": "PUD_UP",
+        "debounce": "25",
+        "read": false,
+        "x": 220,
+        "y": 440,
+        "wires": [
+            [
+                "e327c044.bcb59"
+            ]
+        ]
+    },
+    {
+        "id": "1b123192.17346e",
+        "type": "debug",
+        "z": "d5743cfa.f2bf3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "e327c044.bcb59",
+        "type": "function",
+        "z": "d5743cfa.f2bf3",
+        "name": "",
+        "func": "// var sensors_config = [\n//     {\n//         \"sensor_name\": \"Boix 1\",\n//         \"gpio_pin\": \"pi/12\", // (old 18) added the \"pi/\" to match what is sent by the gpio block\n//         \"multiplier\": 0.5,\n//         \"sensor_id\": \"0f19b032-1901-4591-a785-c9e51930bbd2\",  // use for influxDB \"tag\"\n//         \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n//     },\n//     {\n//         \"sensor_name\": \"White Illig\",\n//         \"gpio_pin\": \"pi/16\", // (old 23)\n//         \"multiplier\": 1,\n//         \"sensor_id\": \"9e77a93d-9701-4279-841a-9d4854cf39fa\",  // use for influxDB \"tag\"\n//         \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n//     },\n//     {\n//         \"sensor_name\": \"Green Illig\",\n//         \"gpio_pin\": \"pi/18\", // (old 24)\n//         \"multiplier\": 1,\n//         \"sensor_id\": \"73233027-6c52-4942-ac61-60d4f72e5601\",  // use for influxDB \"tag\"\n//         \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n//     },\n// ];\n\nnode.warn(\"triggered!\")\n\nvar sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\nfor (i = 0; i < sensors_config.length; i++) {\n    if (sensors_config[i].gpio_pin == msg.topic) {\n        var sensor_num_name = 'sensor_' + (i+1).toString();\n        var count = global.get(sensor_num_name) || 0;\n        count = count + 0.5; // add 0.5 because it's triggered on high and low edge\n        global.set(sensor_num_name, count);\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 520,
+        "wires": [
+            [
+                "7142da45.a2fe94"
+            ]
+        ]
+    },
+    {
+        "id": "d13c5eb.3f7c6a",
+        "type": "inject",
+        "z": "d5743cfa.f2bf3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "*/1 0-23 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "45498157.b69e4"
+            ]
+        ]
+    },
+    {
+        "id": "45498157.b69e4",
+        "type": "function",
+        "z": "d5743cfa.f2bf3",
+        "name": "",
+        "func": "// var timestamp = Math.round(msg.payload/1000)*1000;\n// var sensor_1_count = global.get('sensor_1') || 0; // get count for the minute\n// global.set('sensor_1', 0); // reset count\n// var data = {'sensor_1':{'count':sensor_1_count, 'timestamp': timestamp}};\n// return {'payload': data};\n\n\n// return msg;\n\n\n// var sensors_config = [\n//     {\n//         \"sensor_name\": \"Boix 1\",\n//         \"gpio_pin\": \"pi/12\", // (old 18) added the \"pi/\" to match what is sent by the gpio block\n//         \"multiplier\": 0.5,\n//         \"sensor_id\": \"0f19b032-1901-4591-a785-c9e51930bbd2\",  // use for influxDB \"tag\"\n//         \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n//     },\n//     {\n//         \"sensor_name\": \"White Illig\",\n//         \"gpio_pin\": \"pi/16\", // (old 23)\n//         \"multiplier\": 1,\n//         \"sensor_id\": \"9e77a93d-9701-4279-841a-9d4854cf39fa\",  // use for influxDB \"tag\"\n//         \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n//     },\n//     {\n//         \"sensor_name\": \"Green Illig\",\n//         \"gpio_pin\": \"pi/18\", // (old 24)\n//         \"multiplier\": 1,\n//         \"sensor_id\": \"73233027-6c52-4942-ac61-60d4f72e5601\",  // use for influxDB \"tag\"\n//         \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n//     },\n// ];\n\nvar timestamp = Math.round(msg.payload/1000);\n\n// node.warn(timestamp)\n\nvar sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\nmsg.payload = []\n    \nfor (i = 0; i < sensors_config.length; i++) {\n    var sensor_num_name = 'sensor_' + (i+1).toString();\n    var raw_count = global.get(sensor_num_name) || 0;\n    var multiplier = sensors_config[i].multiplier;\n    var count = multiplier * raw_count;\n    var sensor_id = sensors_config[i].sensor_id;// tag\n    // node.warn(raw_count);\n    // node.warn(multiplier);\n    // node.warn(count);\n    // node.warn(sensor_id);\n    msg.payload.push([{\n        count: count,\n        multiplier: multiplier,\n        raw_count: raw_count,\n        // time: new Date(timestamp-1000000),\n        // _measurement: \"counter\"\n    },\n    {\n        sensor_id: sensor_id // tag\n    }]);\n    \n    global.set(sensor_num_name, 0); // reset count\n}\n\n// node.warn(new Date(timestamp))\n\n// msg.payload = [\n//     [{\n//         intValue: '9i',\n//         numValue: 10,\n//         randomValue: Math.random()*10,\n//         strValue: \"message1\",\n//         time: new Date().getTime()-1\n//     },\n//     {\n//         tag1:\"sensor1\",\n//         tag2:\"device2\"\n//     }],\n//     [{\n//         intValue: '11i',\n//         numValue: 20,\n//         randomValue: Math.random()*10,\n//         strValue: \"message2\",\n//         time: new Date().getTime()\n//     },\n//     {\n//         tag1:\"sensor1\",\n//         tag2:\"device2\"\n//     }]\n// ];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 300,
+        "wires": [
+            [
+                "1b123192.17346e",
+                "9363620f.203b1",
+                "1e320f3f.d01981",
+                "ceed712e.fd315",
+                "cbf5ed04.17b24"
+            ]
+        ]
+    },
+    {
+        "id": "1d596b51.5a9db5",
+        "type": "pi-gpiod in",
+        "z": "d5743cfa.f2bf3",
+        "name": "sensor_2",
+        "host": "172.17.0.1",
+        "port": 8888,
+        "pin": "23",
+        "intype": "PUD_UP",
+        "debounce": "25",
+        "read": false,
+        "x": 220,
+        "y": 520,
+        "wires": [
+            [
+                "e327c044.bcb59"
+            ]
+        ],
+        "info": "{\r\n        \"sensor_name\": \"White Illig\",\r\n        \"gpio_pin\": 23,\r\n        \"multiplier\": 1,\r\n        \"sensor_id\": \"9e77a93d-9701-4279-841a-9d4854cf39fa\",  # use for influxDB \"tag\"\r\n        \"sensor_type\": \"counter\",  # use for influxDB \"measurement\"\r\n}"
+    },
+    {
+        "id": "eb161c87.8531f",
+        "type": "pi-gpiod in",
+        "z": "d5743cfa.f2bf3",
+        "name": "sensor_3",
+        "host": "172.17.0.1",
+        "port": 8888,
+        "pin": "24",
+        "intype": "PUD_UP",
+        "debounce": "25",
+        "read": false,
+        "x": 220,
+        "y": 600,
+        "wires": [
+            [
+                "e327c044.bcb59"
+            ]
+        ],
+        "info": "{\r\n    \"sensor_name\": \"Green Illig\",\r\n    \"gpio_pin\": 24,\r\n    \"multiplier\": 1,\r\n    \"sensor_id\": \"73233027-6c52-4942-ac61-60d4f72e5601\",  # use for influxDB \"tag\"\r\n    \"sensor_type\": \"counter\",  # use for influxDB \"measurement\"\r\n}"
+    },
+    {
+        "id": "7142da45.a2fe94",
+        "type": "debug",
+        "z": "d5743cfa.f2bf3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "9363620f.203b1",
+        "type": "influxdb out",
+        "z": "d5743cfa.f2bf3",
+        "influxdb": "d646ca3f.430208",
+        "name": "sensor_data_storage",
+        "measurement": "counter",
+        "precision": "ms",
+        "retentionPolicy": "260w",
+        "database": "sensor_data",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 740,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "aac58e4e.c1619",
+        "type": "function",
+        "z": "d5743cfa.f2bf3",
+        "name": "sensors_config",
+        "func": "",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\n// The purpose of this function is just to store the sensor data in global\n// context so it can be accessed by all of the nodes\n\nvar sensors_config = [\n    {\n        \"sensor_name\": \"Boix 1\",\n        \"gpio_pin\": \"pi/12\", // (old 18) added the \"pi/\" to match what is sent by the gpio block\n        \"multiplier\": 0.5,\n        \"sensor_id\": \"0f19b032-1901-4591-a785-c9e51930bbd2\",  // use for influxDB \"tag\"\n        \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n    },\n    {\n        \"sensor_name\": \"White Illig\",\n        \"gpio_pin\": \"pi/16\", // (old 23)\n        \"multiplier\": 1,\n        \"sensor_id\": \"9e77a93d-9701-4279-841a-9d4854cf39fa\",  // use for influxDB \"tag\"\n        \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n    },\n    {\n        \"sensor_name\": \"Green Illig\",\n        \"gpio_pin\": \"pi/18\", // (old 24)\n        \"multiplier\": 1,\n        \"sensor_id\": \"73233027-6c52-4942-ac61-60d4f72e5601\",  // use for influxDB \"tag\"\n        \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n    },\n];\n\nvar result = global.set('sensors_config_arr', sensors_config); // store sensors_config array in global context\n\nreturn result;",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "64e1e653.1a7188",
+        "type": "telegram sender",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 410,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4f9bae5.157d55",
+        "type": "inject",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"chatId\":1844668378,\"type\":\"message\",\"content\":\"yo yo what's up\"}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "64e1e653.1a7188"
+            ]
+        ]
+    },
+    {
+        "id": "72b6dd13.434844",
+        "type": "telegram sender",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1490,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "36aa1072.8107c",
+        "type": "debug",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "da17fe61.42196",
+        "type": "influxdb in",
+        "z": "9bd3fc40.b3791",
+        "influxdb": "6ad6735e.18155c",
+        "name": "",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 910,
+        "y": 320,
+        "wires": [
+            [
+                "36aa1072.8107c",
+                "659da516.ea955c",
+                "b9a08d6e.856e5"
+            ]
+        ]
+    },
+    {
+        "id": "f975609.9891da",
+        "type": "debug",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "659da516.ea955c",
+        "type": "function",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "func": "var text = \"Sensor: \" + msg.sensor_name + \"\\n\";\ntext += \"Total: \" + (msg.payload[0].sum).toString();\nvar ret = {\"chatId\":1844668378,\"type\":\"message\",\"content\":text}\nreturn {\"payload\":ret};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 320,
+        "wires": [
+            [
+                "3d12171f.d49858"
+            ]
+        ]
+    },
+    {
+        "id": "3d12171f.d49858",
+        "type": "debug",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1310,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "22374160.6ee5de",
+        "type": "function",
+        "z": "9bd3fc40.b3791",
+        "name": "all_sensors",
+        "func": "// get all the sensor summary report counts\n// return array of sensor summary data\n\nvar sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\n// var default_time_back = 24; // hours\nvar time_back = msg.payload.time_back;\n\nvar numSensors = Object.keys(sensors_config).length\n\n// node.warn(numSensors);\n\n// i = 0;\n\nvar msg_arr = []; //[Object.assign({}, msg), Object.assign({}, msg), Object.assign({}, msg)];\n\nfor(i = 0; i < numSensors; i++){\n    msg_arr.push(Object.assign({}, msg)); // make deep copy of msg object and push to array that will be returned\n    \n    var sensor_id = sensors_config[i].sensor_id;\n    msg_arr[i].sensor_id = sensor_id\n    \n    var sensor_name = sensors_config[i].sensor_name;\n    msg_arr[i].sensor_name = sensor_name\n    \n    // msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time >= '\" + t_from + \"Z' AND time <= '\" + t_to + \"Z'\";\n    \n    \n    // this works !!!\n    // msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 30m\";\n    \n    msg_arr[i].query = \"SELECT SUM(\\\"count\\\") FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - \" + time_back.toString() + \"h\";\n    \n    // node.warn(msg_arr);\n}\n\n// t_to = new Date();\n// t_from = t_to;\n// t_from.setHours(t_to.getHours() - default_time_back);\n\n// 2015-08-20T00:00:00Z\n\n// node.warn(t_to)\n// node.warn(t_from)\n/*\nvar sensor_id = sensors_config[i].sensor_id;\nmsg.sensor_id = sensor_id\n\nvar sensor_name = sensors_config[i].sensor_name;\nmsg.sensor_name = sensor_name\n\nmsg.query = \"SELECT SUM(\\\"count\\\") FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - \" + time_back.toString() + \"h\";\n*/\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time >= '\" + t_from + \"Z' AND time <= '\" + t_to + \"Z'\";\n\n\n// this works !!!\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 30m\";\n\n\n// msg.query = 'from(bucket: \"sensor_data/autogen\") |> range(start: -1d, stop: now())'\n// node.warn(msg_arr);\n// return {\"payload\":msg};\nreturn [msg_arr];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 340,
+        "wires": [
+            [
+                "da17fe61.42196",
+                "f975609.9891da"
+            ]
+        ]
+    },
+    {
+        "id": "afdbceec.09f2e",
+        "type": "inject",
+        "z": "9bd3fc40.b3791",
+        "name": "scheduled report",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "15 17 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"time_back\":24}",
+        "payloadType": "json",
+        "x": 210,
+        "y": 580,
+        "wires": [
+            [
+                "80a277e0.ee32f8",
+                "2fbfa4ca.6ae3bc"
+            ]
+        ]
+    },
+    {
+        "id": "80a277e0.ee32f8",
+        "type": "debug",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "b9a08d6e.856e5",
+        "type": "join",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "",
+        "propertyType": "full",
+        "key": "sensor_id",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1010,
+        "y": 440,
+        "wires": [
+            [
+                "61377edb.dbbf4",
+                "923a12aa.e868e"
+            ]
+        ]
+    },
+    {
+        "id": "61377edb.dbbf4",
+        "type": "debug",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "923a12aa.e868e",
+        "type": "function",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "func": "/*\nvar sensors_config = [\n    {\n        \"sensor_name\": \"Boix 1\",\n        \"gpio_pin\": \"pi/12\", // (old 18) added the \"pi/\" to match what is sent by the gpio block\n        \"multiplier\": 0.5,\n        \"sensor_id\": \"0f19b032-1901-4591-a785-c9e51930bbd2\",  // use for influxDB \"tag\"\n        \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n    },\n    {\n        \"sensor_name\": \"White Illig\",\n        \"gpio_pin\": \"pi/16\", // (old 23)\n        \"multiplier\": 1,\n        \"sensor_id\": \"9e77a93d-9701-4279-841a-9d4854cf39fa\",  // use for influxDB \"tag\"\n        \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n    },\n    {\n        \"sensor_name\": \"Green Illig\",\n        \"gpio_pin\": \"pi/18\", // (old 24)\n        \"multiplier\": 1,\n        \"sensor_id\": \"73233027-6c52-4942-ac61-60d4f72e5601\",  // use for influxDB \"tag\"\n        \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n    },\n];\n*/\n\n// var sensorData = msg.payload.payload;\nvar chatId = msg.originalMessage.chat.id;\n\nvar numSensors = Object.keys(msg.payload).length\n// var numSensors = Object.keys(sensorData).length\n\n// node.warn(msg);\n\n// node.warn(numSensors);\n\nvar sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\nvar sensorIds = Object.keys(msg.payload);\n// var sensorIds = Object.keys(msg.payload);\n// var sensorIds = Object.keys(sensorData);\n\n// node.warn(msg.payload);\n// node.warn(numSensors);\n\n// var timeBack = msg.query.slice(-3);\n// node.warn(numSensors);\n\nvar afterStr = \"now() - \";\nvar pos = msg.query.indexOf(afterStr) + afterStr.length;\n// node.warn(pos);\n\nvar timeBack = msg.query.substring(pos, msg.query.length - 1);\n// node.warn(timeBack);\n\n// node.warn(msg.query);\n\nvar totals_command = \"/total\" + timeBack;\n\n// node.warn(totals_command)\n\nvar text = \"TOI Company \" + totals_command + \" report:\\n\";\ntext += \"(Time back: \" + timeBack + \" hours)\\n\";\n\nfor(i = 0; i < numSensors; i++){\n    var sensorId = sensors_config[i].sensor_id;\n    var sensorName = msg.payload[sensorId].sensor_name;\n    // var sensorName = msg.payload[sensorIds[i]].sensor_name;\n    // var sensorName = sensorData[sensorIds[i]].sensor_name;\n    var sum = msg.payload[sensorId].payload[0].sum;\n    // var sum = msg.payload[sensorIds[i]].payload[0].sum;\n    // var sum = sensorData[sensorIds[i]].payload[0].sum;\n    text += \"\\nSensor: \" + sensorName + \"\\n\";\n    text += \"Total: \" + sum.toString() + \"\\n\";\n}\n\ntext += \"\\nDone. Click /help for assistance.\"\n\nvar ret = {\"chatId\":chatId,\"type\":\"message\",\"content\":text}\nreturn {\"payload\":ret};\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 520,
+        "wires": [
+            [
+                "d9dcd070.6178",
+                "72b6dd13.434844"
+            ]
+        ]
+    },
+    {
+        "id": "d9dcd070.6178",
+        "type": "debug",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1430,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "e3ec68e0.877c48",
+        "type": "telegram command",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "command": "/help",
+        "bot": "ef6b631c.463c9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "bf67888f.ec07c8",
+                "b902a72a.f505b8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "bf67888f.ec07c8",
+        "type": "function",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "func": "var text = \"TOI bot /help menu:\\n\";\ntext += \"\\n/total24: get the total counts for all sensors, you can replace the \\\"24\\\" with any number of \\\"hours back\\\" timeframe.\";\n\ntext += \"\\n\\nSome useful examples below:\\n\";\ntext += \"/total12: totals over the last 12 hours.\\n\";\ntext += \"/total6: totals over the last 6 hours.\\n\";\ntext += \"/total2: totals over the last 2 hours.\\n\";\ntext += \"/total1: totals over the last 1 hours.\\n\";\n\ntext += \"\\nContact TOI for any additional assistance.\\n\";\n\nvar chatId = msg.payload.chatId;\n\nvar ret = {\"chatId\":chatId,\"type\":\"message\",\"content\":text}\nreturn {\"payload\":ret};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 220,
+        "wires": [
+            [
+                "93323d9f.e0b4f",
+                "52b237be.7602d8"
+            ]
+        ]
+    },
+    {
+        "id": "93323d9f.e0b4f",
+        "type": "telegram sender",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 680,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b902a72a.f505b8",
+        "type": "debug",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "52b237be.7602d8",
+        "type": "debug",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9f82d9e1.b99c18",
+        "type": "function",
+        "z": "d5743cfa.f2bf3",
+        "name": "scheduled_telegram_ids_config",
+        "func": "",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nvar tele_ids_config = [\n    {\n        \"name\": \"Jason\",\n        \"chatId\": \"1844668378\",\n    },\n    // {\n    //     \"name\": \"John\",\n    //     \"chatId\": 1141720956,\n    // },\n    {\n        \"name\": \"Testing group\",\n        \"chatId\": \"-406192165\",\n    },\n];\n\nvar result = global.set('tele_ids_config_arr', tele_ids_config); // store array in global context\n\nreturn result;",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2fbfa4ca.6ae3bc",
+        "type": "function",
+        "z": "9bd3fc40.b3791",
+        "name": "insert_chat_ids",
+        "func": "/*\n// Code added here will be run once\n// whenever the node is started.\n\nvar tele_ids_config = [\n    {\n        \"name\": \"Jason\",\n        \"chatId\": 1844668378,\n    },\n    {\n        \"name\": \"John\",\n        \"chatId\": 1234,\n    },\n];\n\nvar result = global.set('tele_ids_config_arr', sensors_config); // store array in global context\n\nreturn result;\n*/\n\nvar ids_config = global.get('tele_ids_config_arr') || 0; // get tele_ids_config_arr\n\nvar numChats = ids_config.length\n\nvar chatIds_arr = [];\n// var names_arr = [];\n\n// node.warn(numChats);\n\n// node.warn(ids_config);\n\n// var msg_arr = [Object.assign({}, msg), Object.assign({}, msg)];\n// var msg_arr = [];\n\nfor(i = 0; i < numChats; i++){\n    // msg_arr.push(Object.assign({}, msg));\n    var chatId = ids_config[i].chatId;\n    // var name = ids_config[i].name;\n    \n    chatIds_arr.push(chatId);\n    // names_arr.push(name)\n    // msg_arr[i].originalMessage.chat.id = chatId; // weird \"path\" from what the telegram node outputs\n    // msg_arr[i].originalMessage = {\"chat\":{\"id\":chatId}}; // weird \"path\" from what the telegram node outputs\n}\n\nmsg.originalMessage = {\"chat\":{\"id\":chatIds_arr}}; // weird \"path\" from what the telegram node outputs\n\n// node.warn(msg_arr);\n\n// return [msg_arr];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 460,
+        "wires": [
+            [
+                "2f45a8ee.bfe288",
+                "22374160.6ee5de"
+            ]
+        ]
+    },
+    {
+        "id": "2f45a8ee.bfe288",
+        "type": "debug",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6b724097.61cdf",
+        "type": "telegram receiver",
+        "z": "9bd3fc40.b3791",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 170,
+        "y": 360,
+        "wires": [
+            [
+                "e74c11db.d171a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e74c11db.d171a",
+        "type": "function",
+        "z": "9bd3fc40.b3791",
+        "name": "custom_total_command",
+        "func": "// get all the sensor summary report counts\n// return array of sensor summary data\n\n// var sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\nvar time_back = 24; // hours\n\n// i = 0;\n\n// t_to = new Date();\n// t_from = t_to;\n// t_from.setHours(t_to.getHours() - default_time_back);\n\n// 2015-08-20T00:00:00Z\n\n// node.warn(msg.originalMessage.text)\n\nvar msg_text = msg.originalMessage.text\n\nvar check = msg_text.substring(1, 6)\n// node.warn(check)\n\nif(check != \"total\"){\n    // node.warn(\"check != \\\"total\\\"\")\n    return null;\n} else{\n    var num = msg_text.substring(6)\n    // node.warn(num)\n    if(isNaN(num) == false){\n        time_back = Math.abs(parseInt(num))\n    }\n}\n\n// node.warn(time_back)\n\nmsg.payload.time_back = time_back;\n\n// node.warn(t_from)\n\n// var sensor_id = sensors_config[i].sensor_id;\n// msg.sensor_id = sensor_id\n\n// var sensor_name = sensors_config[i].sensor_name;\n// msg.sensor_name = sensor_name\n\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time >= '\" + t_from + \"Z' AND time <= '\" + t_to + \"Z'\";\n\n\n// this works !!!\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 30m\";\n\n// msg.query = \"SELECT SUM(\\\"count\\\") FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 24h\";\n\n// msg.query = 'from(bucket: \"sensor_data/autogen\") |> range(start: -1d, stop: now())'\n\n// return {\"payload\":msg};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 360,
+        "wires": [
+            [
+                "22374160.6ee5de"
+            ]
+        ]
+    },
+    {
+        "id": "c56ee136.8fccd",
+        "type": "telegram command",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "command": "/count",
+        "bot": "ef6b631c.463c9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "c69461c0.a5454",
+                "18864304.172fad"
+            ],
+            [
+                "55d7de79.12082"
+            ]
+        ]
+    },
+    {
+        "id": "c69461c0.a5454",
+        "type": "function",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "func": "var sensor_1_count = global.get('sensor_1') || 0; // get count for the minute\n\nvar chatId = msg.payload.chatId;\n\nvar ret = {\"chatId\":chatId,\"type\":\"message\",\"content\":sensor_1_count.toString()}\n\nreturn {\"payload\":ret};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 300,
+        "wires": [
+            [
+                "5ddbf2bc.e50b0c",
+                "eaf11b4f.564ff8"
+            ]
+        ]
+    },
+    {
+        "id": "5ddbf2bc.e50b0c",
+        "type": "telegram sender",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 640,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e8738ce6.9030c",
+        "type": "telegram sender",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7162598a.239818",
+        "type": "inject",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"chatId\":1844668378,\"type\":\"message\",\"content\":\"yo yo what's up\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 40,
+        "wires": [
+            [
+                "e8738ce6.9030c"
+            ]
+        ]
+    },
+    {
+        "id": "18864304.172fad",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "55d7de79.12082",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "eaf11b4f.564ff8",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d9e9cecd.c4bed",
+        "type": "telegram command",
+        "z": "3ce58505.dc163a",
+        "d": true,
+        "name": "",
+        "command": "/total24",
+        "bot": "ef6b631c.463c9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 620,
+        "wires": [
+            [
+                "bff833a1.ab93a",
+                "408e224e.e2241c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b6a40f0b.c2e25",
+        "type": "telegram sender",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1450,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bff833a1.ab93a",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "d": true,
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 270,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "3702727d.85922e",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "6d8ef1d.3efc71",
+        "type": "influxdb in",
+        "z": "3ce58505.dc163a",
+        "influxdb": "6ad6735e.18155c",
+        "name": "",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 870,
+        "y": 660,
+        "wires": [
+            [
+                "3702727d.85922e",
+                "3925ef97.809e1",
+                "9f88e8fd.643008"
+            ]
+        ]
+    },
+    {
+        "id": "f4a19b8b.019a68",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "3925ef97.809e1",
+        "type": "function",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "func": "var text = \"Sensor: \" + msg.sensor_name + \"\\n\";\ntext += \"Total: \" + (msg.payload[0].sum).toString();\nvar ret = {\"chatId\":1844668378,\"type\":\"message\",\"content\":text}\nreturn {\"payload\":ret};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 660,
+        "wires": [
+            [
+                "5ebaa727.1eb138"
+            ]
+        ]
+    },
+    {
+        "id": "5ebaa727.1eb138",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1270,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "408e224e.e2241c",
+        "type": "function",
+        "z": "3ce58505.dc163a",
+        "d": true,
+        "name": "collate_command",
+        "func": "// get all the sensor summary report counts\n// return array of sensor summary data\n\n// var sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\nvar time_back = 24; // hours\n\n// i = 0;\n\n// t_to = new Date();\n// t_from = t_to;\n// t_from.setHours(t_to.getHours() - default_time_back);\n\n// 2015-08-20T00:00:00Z\n\n// node.warn(msg.originalMessage.text)\n\nvar msg_text = msg.originalMessage.text\n\nvar check = msg_text.substring(1, 6)\n// node.warn(check)\n\nif(check != \"total\"){\n    node.warn(\"check != \\\"total\\\"\")\n} else{\n    var num = msg_text.substring(6)\n    node.warn(num)\n    if(isNaN(num) == false){\n        time_back = Math.abs(parseInt(num))\n    }\n}\n\n// node.warn(time_back)\n\nmsg.payload.time_back = time_back;\n\n// node.warn(t_from)\n\n// var sensor_id = sensors_config[i].sensor_id;\n// msg.sensor_id = sensor_id\n\n// var sensor_name = sensors_config[i].sensor_name;\n// msg.sensor_name = sensor_name\n\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time >= '\" + t_from + \"Z' AND time <= '\" + t_to + \"Z'\";\n\n\n// this works !!!\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 30m\";\n\n// msg.query = \"SELECT SUM(\\\"count\\\") FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 24h\";\n\n// msg.query = 'from(bucket: \"sensor_data/autogen\") |> range(start: -1d, stop: now())'\n\n// return {\"payload\":msg};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 620,
+        "wires": [
+            [
+                "dc8997fa.3e72d8"
+            ]
+        ]
+    },
+    {
+        "id": "24a5fa75.fe3a26",
+        "type": "telegram command",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "command": "/total",
+        "bot": "ef6b631c.463c9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 480,
+        "wires": [
+            [
+                "b3e775af.e55798",
+                "871d75f3.6f4258"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b3e775af.e55798",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 250,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "cd8110b5.ba28b",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "871d75f3.6f4258",
+        "type": "function",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "func": "msg.payload.sentMessageId = msg.payload.messageId;\nmsg.payload.content = \"Enter the \\\"hours back\\\" for the total counts. Make sure to \\\"reply\\\" to this message by swiping left on the message.\";\n// msg.payload.chatId = 1844668378;\n\n// node.warn(msg.payload.sentMessageId)\n\nreturn msg;\n\n/*\nchatId destination chatId.\nsentMessageId the id of the previously sent message in the chat.\ncontent the message content.\n*/",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 480,
+        "wires": [
+            [
+                "962e9fb9.cf908",
+                "36706be1.d066f4"
+            ]
+        ]
+    },
+    {
+        "id": "962e9fb9.cf908",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "50ddfc84.8b5ee4",
+        "type": "telegram reply",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "x": 840,
+        "y": 480,
+        "wires": [
+            [
+                "cd8110b5.ba28b",
+                "17f492e3.9a791d"
+            ]
+        ]
+    },
+    {
+        "id": "36706be1.d066f4",
+        "type": "telegram sender",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 610,
+        "y": 480,
+        "wires": [
+            [
+                "50ddfc84.8b5ee4"
+            ]
+        ]
+    },
+    {
+        "id": "17f492e3.9a791d",
+        "type": "function",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "func": "var num = msg.payload.content;\n\nif(isNaN(num) == false){\n    time_back = Math.abs(parseInt(num))\n}\n\n// node.warn(\"hours_back=\" + time_back.toString())\n\nmsg.payload.time_back = time_back;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 480,
+        "wires": [
+            [
+                "dc8997fa.3e72d8",
+                "2513c2a0.f48eae"
+            ]
+        ]
+    },
+    {
+        "id": "dc8997fa.3e72d8",
+        "type": "function",
+        "z": "3ce58505.dc163a",
+        "name": "all_sensors",
+        "func": "// get all the sensor summary report counts\n// return array of sensor summary data\n\nvar sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\n// var default_time_back = 24; // hours\nvar time_back = msg.payload.time_back;\n\nvar numSensors = Object.keys(sensors_config).length\n\n// node.warn(numSensors);\n\n// i = 0;\n\nvar msg_arr = []; //[Object.assign({}, msg), Object.assign({}, msg), Object.assign({}, msg)];\n\nfor(i = 0; i < numSensors; i++){\n    msg_arr.push(Object.assign({}, msg)); // make deep copy of msg object and push to array that will be returned\n    \n    var sensor_id = sensors_config[i].sensor_id;\n    msg_arr[i].sensor_id = sensor_id\n    \n    var sensor_name = sensors_config[i].sensor_name;\n    msg_arr[i].sensor_name = sensor_name\n    \n    // msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time >= '\" + t_from + \"Z' AND time <= '\" + t_to + \"Z'\";\n    \n    \n    // this works !!!\n    // msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 30m\";\n    \n    msg_arr[i].query = \"SELECT SUM(\\\"count\\\") FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - \" + time_back.toString() + \"h\";\n    \n    // node.warn(msg_arr);\n}\n\n// t_to = new Date();\n// t_from = t_to;\n// t_from.setHours(t_to.getHours() - default_time_back);\n\n// 2015-08-20T00:00:00Z\n\n// node.warn(t_to)\n// node.warn(t_from)\n/*\nvar sensor_id = sensors_config[i].sensor_id;\nmsg.sensor_id = sensor_id\n\nvar sensor_name = sensors_config[i].sensor_name;\nmsg.sensor_name = sensor_name\n\nmsg.query = \"SELECT SUM(\\\"count\\\") FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - \" + time_back.toString() + \"h\";\n*/\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time >= '\" + t_from + \"Z' AND time <= '\" + t_to + \"Z'\";\n\n\n// this works !!!\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 30m\";\n\n\n// msg.query = 'from(bucket: \"sensor_data/autogen\") |> range(start: -1d, stop: now())'\n// node.warn(msg_arr);\n// return {\"payload\":msg};\nreturn [msg_arr];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 680,
+        "wires": [
+            [
+                "6d8ef1d.3efc71",
+                "f4a19b8b.019a68"
+            ]
+        ]
+    },
+    {
+        "id": "a996bec6.2e25e",
+        "type": "inject",
+        "z": "3ce58505.dc163a",
+        "name": "scheduled report",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "15 17 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"time_back\":24}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 920,
+        "wires": [
+            [
+                "c41a8691.7b5ee8",
+                "b760d22.b396d3"
+            ]
+        ]
+    },
+    {
+        "id": "2513c2a0.f48eae",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "c41a8691.7b5ee8",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "9f88e8fd.643008",
+        "type": "join",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "",
+        "propertyType": "full",
+        "key": "sensor_id",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 970,
+        "y": 780,
+        "wires": [
+            [
+                "ee1dd17f.d6665",
+                "fd9d550f.2bcb48"
+            ]
+        ]
+    },
+    {
+        "id": "ee1dd17f.d6665",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "fd9d550f.2bcb48",
+        "type": "function",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "func": "/*\nvar sensors_config = [\n    {\n        \"sensor_name\": \"Boix 1\",\n        \"gpio_pin\": \"pi/12\", // (old 18) added the \"pi/\" to match what is sent by the gpio block\n        \"multiplier\": 0.5,\n        \"sensor_id\": \"0f19b032-1901-4591-a785-c9e51930bbd2\",  // use for influxDB \"tag\"\n        \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n    },\n    {\n        \"sensor_name\": \"White Illig\",\n        \"gpio_pin\": \"pi/16\", // (old 23)\n        \"multiplier\": 1,\n        \"sensor_id\": \"9e77a93d-9701-4279-841a-9d4854cf39fa\",  // use for influxDB \"tag\"\n        \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n    },\n    {\n        \"sensor_name\": \"Green Illig\",\n        \"gpio_pin\": \"pi/18\", // (old 24)\n        \"multiplier\": 1,\n        \"sensor_id\": \"73233027-6c52-4942-ac61-60d4f72e5601\",  // use for influxDB \"tag\"\n        \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n    },\n];\n*/\n\n// var sensorData = msg.payload.payload;\nvar chatId = msg.originalMessage.chat.id;\n\nvar numSensors = Object.keys(msg.payload).length\n// var numSensors = Object.keys(sensorData).length\n\n// node.warn(msg);\n\n// node.warn(numSensors);\n\nvar sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\nvar sensorIds = Object.keys(msg.payload);\n// var sensorIds = Object.keys(msg.payload);\n// var sensorIds = Object.keys(sensorData);\n\n// node.warn(msg.payload);\n// node.warn(numSensors);\n\nvar timeBack = msg.query.slice(-3);\n\n// node.warn(timeBack);\n\nvar text = \"TOI Company totals report:\\n\";\ntext += \"(Time back: \" + timeBack + \")\\n\";\n\nfor(i = 0; i < numSensors; i++){\n    var sensorId = sensors_config[i].sensor_id;\n    var sensorName = msg.payload[sensorId].sensor_name;\n    // var sensorName = msg.payload[sensorIds[i]].sensor_name;\n    // var sensorName = sensorData[sensorIds[i]].sensor_name;\n    var sum = msg.payload[sensorId].payload[0].sum;\n    // var sum = msg.payload[sensorIds[i]].payload[0].sum;\n    // var sum = sensorData[sensorIds[i]].payload[0].sum;\n    text += \"\\nSensor: \" + sensorName + \"\\n\";\n    text += \"Total: \" + sum.toString() + \"\\n\";\n}\n\ntext += \"\\nDone.\"\n\nvar ret = {\"chatId\":chatId,\"type\":\"message\",\"content\":text}\nreturn {\"payload\":ret};\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 860,
+        "wires": [
+            [
+                "5f10b299.c16d6c",
+                "b6a40f0b.c2e25"
+            ]
+        ]
+    },
+    {
+        "id": "5f10b299.c16d6c",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1390,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "aaff1a11.3a5a88",
+        "type": "telegram command",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "command": "/help",
+        "bot": "ef6b631c.463c9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "c5eb7f4.566c88",
+                "dd3435ca.70f1f8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c5eb7f4.566c88",
+        "type": "function",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "func": "var text = \"TOI bot /help menu:\\n\";\ntext += \"\\n/total: get the total counts for all sensors, need to reply with the \\\"hours back\\\".\\n\";\ntext += \"\\n/total24: get the total counts for all sensors, fixed 24h \\\"hours back\\\" timeframe.\";\n\nvar chatId = msg.payload.chatId;\n\nvar ret = {\"chatId\":chatId,\"type\":\"message\",\"content\":text}\nreturn {\"payload\":ret};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "344d8d26.a49992",
+                "469df360.81e07c"
+            ]
+        ]
+    },
+    {
+        "id": "344d8d26.a49992",
+        "type": "telegram sender",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 640,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dd3435ca.70f1f8",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "469df360.81e07c",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b760d22.b396d3",
+        "type": "function",
+        "z": "3ce58505.dc163a",
+        "name": "insert_chat_ids",
+        "func": "/*\n// Code added here will be run once\n// whenever the node is started.\n\nvar tele_ids_config = [\n    {\n        \"name\": \"Jason\",\n        \"chatId\": 1844668378,\n    },\n    {\n        \"name\": \"John\",\n        \"chatId\": 1234,\n    },\n];\n\nvar result = global.set('tele_ids_config_arr', sensors_config); // store array in global context\n\nreturn result;\n*/\n\nvar ids_config = global.get('tele_ids_config_arr') || 0; // get tele_ids_config_arr\n\nvar numChats = ids_config.length\n\nvar chatIds_arr = [];\n// var names_arr = [];\n\n// node.warn(numChats);\n\n// node.warn(ids_config);\n\n// var msg_arr = [Object.assign({}, msg), Object.assign({}, msg)];\n// var msg_arr = [];\n\nfor(i = 0; i < numChats; i++){\n    // msg_arr.push(Object.assign({}, msg));\n    var chatId = ids_config[i].chatId;\n    // var name = ids_config[i].name;\n    \n    chatIds_arr.push(chatId);\n    // names_arr.push(name)\n    // msg_arr[i].originalMessage.chat.id = chatId; // weird \"path\" from what the telegram node outputs\n    // msg_arr[i].originalMessage = {\"chat\":{\"id\":chatId}}; // weird \"path\" from what the telegram node outputs\n}\n\nmsg.originalMessage = {\"chat\":{\"id\":chatIds_arr}}; // weird \"path\" from what the telegram node outputs\n\n// node.warn(msg_arr);\n\n// return [msg_arr];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 800,
+        "wires": [
+            [
+                "56d2c237.1b62ac",
+                "dc8997fa.3e72d8"
+            ]
+        ]
+    },
+    {
+        "id": "56d2c237.1b62ac",
+        "type": "debug",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "f0dcd15a.ff844",
+        "type": "telegram receiver",
+        "z": "3ce58505.dc163a",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 130,
+        "y": 700,
+        "wires": [
+            [
+                "702465ac.e4278c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "702465ac.e4278c",
+        "type": "function",
+        "z": "3ce58505.dc163a",
+        "name": "custom_total_command",
+        "func": "// get all the sensor summary report counts\n// return array of sensor summary data\n\n// var sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\nvar time_back = 24; // hours\n\n// i = 0;\n\n// t_to = new Date();\n// t_from = t_to;\n// t_from.setHours(t_to.getHours() - default_time_back);\n\n// 2015-08-20T00:00:00Z\n\nnode.warn(msg.originalMessage.text)\n\nvar msg_text = msg.originalMessage.text\n\nvar check = msg_text.substring(1, 6)\n// node.warn(check)\n\nif(check != \"total\"){\n    node.warn(\"check != \\\"total\\\"\")\n    return null;\n} else{\n    var num = msg_text.substring(6)\n    node.warn(num)\n    if(isNaN(num) == false){\n        time_back = Math.abs(parseInt(num))\n    }\n}\n\n// node.warn(time_back)\n\nmsg.payload.time_back = time_back;\n\n// node.warn(t_from)\n\n// var sensor_id = sensors_config[i].sensor_id;\n// msg.sensor_id = sensor_id\n\n// var sensor_name = sensors_config[i].sensor_name;\n// msg.sensor_name = sensor_name\n\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time >= '\" + t_from + \"Z' AND time <= '\" + t_to + \"Z'\";\n\n\n// this works !!!\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 30m\";\n\n// msg.query = \"SELECT SUM(\\\"count\\\") FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 24h\";\n\n// msg.query = 'from(bucket: \"sensor_data/autogen\") |> range(start: -1d, stop: now())'\n\n// return {\"payload\":msg};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 700,
+        "wires": [
+            [
+                "dc8997fa.3e72d8"
+            ]
+        ]
+    },
+    {
+        "id": "d2c953a4.489f3",
+        "type": "mqtt out",
+        "z": "4e6d1ae6.b0fdb4",
+        "name": "",
+        "topic": "sensor_1",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f46031cc.a4c45",
+        "x": 300,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1b24446c.20d21c",
+        "type": "inject",
+        "z": "4e6d1ae6.b0fdb4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "d2c953a4.489f3"
+            ]
+        ]
+    },
+    {
+        "id": "22c5cb.edef0a36",
+        "type": "mqtt in",
+        "z": "4e6d1ae6.b0fdb4",
+        "name": "",
+        "topic": "sensor_1",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f46031cc.a4c45",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 280,
+        "y": 200,
+        "wires": [
+            [
+                "368bcf5b.32551"
+            ]
+        ]
+    },
+    {
+        "id": "368bcf5b.32551",
+        "type": "debug",
+        "z": "4e6d1ae6.b0fdb4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "6c6e64ca.3145ac",
+        "type": "ui_button",
+        "z": "d4258d3b.8620a",
+        "name": "",
+        "group": "8c49191b.e59cb8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "my_button",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 310,
+        "y": 300,
+        "wires": [
+            [
+                "8c40e9fa.062af8"
+            ]
+        ]
+    },
+    {
+        "id": "8c40e9fa.062af8",
+        "type": "debug",
+        "z": "d4258d3b.8620a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "9481fdf5.78c19",
+        "type": "ui_dropdown",
+        "z": "d4258d3b.8620a",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "8c49191b.e59cb8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "ON",
+                "value": "on",
+                "type": "str"
+            },
+            {
+                "label": "OFF",
+                "value": "off",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 320,
+        "y": 420,
+        "wires": [
+            [
+                "8c40e9fa.062af8"
+            ]
+        ]
+    },
+    {
+        "id": "a487484f.72f848",
+        "type": "ui_slider",
+        "z": "d4258d3b.8620a",
+        "name": "",
+        "label": "Tank 1 - MIN",
+        "tooltip": "set min temp for tank 1",
+        "group": "8c49191b.e59cb8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "35",
+        "step": 1,
+        "x": 330,
+        "y": 600,
+        "wires": [
+            [
+                "8c40e9fa.062af8",
+                "2719f2fd.b587de"
+            ]
+        ]
+    },
+    {
+        "id": "5b501377.18de1c",
+        "type": "ui_numeric",
+        "z": "d4258d3b.8620a",
+        "name": "",
+        "label": "numeric",
+        "tooltip": "",
+        "group": "8c49191b.e59cb8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "x": 330,
+        "y": 700,
+        "wires": [
+            [
+                "8c40e9fa.062af8",
+                "1b653f98.507f7"
+            ]
+        ]
+    },
+    {
+        "id": "1b653f98.507f7",
+        "type": "ui_text",
+        "z": "d4258d3b.8620a",
+        "group": "8c49191b.e59cb8",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 560,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "2719f2fd.b587de",
+        "type": "ui_gauge",
+        "z": "d4258d3b.8620a",
+        "name": "",
+        "group": "8c49191b.e59cb8",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "35",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "15",
+        "seg2": "25",
+        "x": 550,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "c9cf743c.c63e48",
+        "type": "inject",
+        "z": "5fa8cdfb.71d034",
+        "d": true,
+        "name": "refresh 1m",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "cffa7bf6.d98a78"
+            ]
+        ]
+    },
+    {
+        "id": "cffa7bf6.d98a78",
+        "type": "delay",
+        "z": "5fa8cdfb.71d034",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "d09a9272.e9c2"
+            ]
+        ]
+    },
+    {
+        "id": "d09a9272.e9c2",
+        "type": "function",
+        "z": "5fa8cdfb.71d034",
+        "name": "all_sensors",
+        "func": "// get all the sensor summary report counts\n// return array of sensor summary data\n\nvar sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\nvar time_back = 24; // hours\n// var time_back = msg.payload.time_back;\n\nvar numSensors = Object.keys(sensors_config).length\nnumSensors = 1;\n\n// node.warn(numSensors);\n\n// i = 0;\n\nvar msg_arr = []; //[Object.assign({}, msg), Object.assign({}, msg), Object.assign({}, msg)];\n\nfor(i = 0; i < numSensors; i++){\n    msg_arr.push(Object.assign({}, msg)); // make deep copy of msg object and push to array that will be returned\n    \n    var sensor_id = sensors_config[i].sensor_id;\n    msg_arr[i].sensor_id = sensor_id\n    \n    var sensor_name = sensors_config[i].sensor_name;\n    msg_arr[i].sensor_name = sensor_name\n    \n    // msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time >= '\" + t_from + \"Z' AND time <= '\" + t_to + \"Z'\";\n    \n    \n    // this works !!!\n    // msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 30m\";\n    \n    msg_arr[i].query = \"SELECT \\\"count\\\" FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - \" + time_back.toString() + \"h\";\n    \n    // node.warn(msg_arr);\n}\n\n// t_to = new Date();\n// t_from = t_to;\n// t_from.setHours(t_to.getHours() - default_time_back);\n\n// 2015-08-20T00:00:00Z\n\n// node.warn(t_to)\n// node.warn(t_from)\n/*\nvar sensor_id = sensors_config[i].sensor_id;\nmsg.sensor_id = sensor_id\n\nvar sensor_name = sensors_config[i].sensor_name;\nmsg.sensor_name = sensor_name\n\nmsg.query = \"SELECT SUM(\\\"count\\\") FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - \" + time_back.toString() + \"h\";\n*/\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time >= '\" + t_from + \"Z' AND time <= '\" + t_to + \"Z'\";\n\n\n// this works !!!\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 30m\";\n\n\n// msg.query = 'from(bucket: \"sensor_data/autogen\") |> range(start: -1d, stop: now())'\n// node.warn(msg_arr);\n// return {\"payload\":msg};\nreturn [msg_arr];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 140,
+        "wires": [
+            [
+                "d012b53b.76f688"
+            ]
+        ]
+    },
+    {
+        "id": "d012b53b.76f688",
+        "type": "influxdb in",
+        "z": "5fa8cdfb.71d034",
+        "influxdb": "6ad6735e.18155c",
+        "name": "",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 910,
+        "y": 140,
+        "wires": [
+            [
+                "b604318f.40491",
+                "b26ba1ee.2472"
+            ]
+        ]
+    },
+    {
+        "id": "4250d1f8.8304f",
+        "type": "switch",
+        "z": "5fa8cdfb.71d034",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 340,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d9d064fb.95c138",
+        "type": "switch",
+        "z": "5fa8cdfb.71d034",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 340,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e43228ff.816dd8",
+        "type": "switch",
+        "z": "5fa8cdfb.71d034",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 340,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b604318f.40491",
+        "type": "debug",
+        "z": "5fa8cdfb.71d034",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "394a4f15.58b19",
+        "type": "inject",
+        "z": "5fa8cdfb.71d034",
+        "name": "manual",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 100,
+        "wires": [
+            [
+                "d09a9272.e9c2"
+            ]
+        ]
+    },
+    {
+        "id": "710a63de.71b58c",
+        "type": "ui_chart",
+        "z": "5fa8cdfb.71d034",
+        "d": true,
+        "name": "",
+        "group": "8c49191b.e59cb8",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 900,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b26ba1ee.2472",
+        "type": "function",
+        "z": "5fa8cdfb.71d034",
+        "name": "all_sensors",
+        "func": "var numPoints = msg.payload.length;\n\nnode.warn(numPoints);\n\nvar msg_arr = []; //[Object.assign({}, msg), Object.assign({}, msg), Object.assign({}, msg)];\n\nfor(i = 0; i < numPoints; i++){\n    msg_arr.push(Object.assign({}, msg)); // make deep copy of msg object and push to array that will be returned\n    var value = msg.payload[i].count;\n    msg_arr[i].payload = value;\n}\n\n\nreturn [msg_arr];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 300,
+        "wires": [
+            [
+                "710a63de.71b58c"
+            ]
+        ]
+    },
+    {
+        "id": "779a6e0e.cb4e9",
+        "type": "ui_chart",
+        "z": "d5743cfa.f2bf3",
+        "name": "",
+        "group": "8c49191b.e59cb8",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "label": "Sensor 1",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1040,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e320f3f.d01981",
+        "type": "function",
+        "z": "d5743cfa.f2bf3",
+        "name": "sensor 1 count",
+        "func": "var sensor = 0;\n\nvar value = msg.payload[sensor][0].count;\nmsg.payload = value;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 400,
+        "wires": [
+            [
+                "779a6e0e.cb4e9"
+            ]
+        ]
+    },
+    {
+        "id": "ceed712e.fd315",
+        "type": "function",
+        "z": "d5743cfa.f2bf3",
+        "name": "sensor 2 count",
+        "func": "var sensor = 1;\n\nvar value = msg.payload[sensor][0].count;\nmsg.payload = value;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 440,
+        "wires": [
+            [
+                "c7a52801.065e78"
+            ]
+        ]
+    },
+    {
+        "id": "cbf5ed04.17b24",
+        "type": "function",
+        "z": "d5743cfa.f2bf3",
+        "name": "sensor 3 count",
+        "func": "var sensor = 2;\n\nvar value = msg.payload[sensor][0].count;\nmsg.payload = value;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 480,
+        "wires": [
+            [
+                "a822af7c.a0d9f"
+            ]
+        ]
+    },
+    {
+        "id": "c7a52801.065e78",
+        "type": "ui_chart",
+        "z": "d5743cfa.f2bf3",
+        "name": "",
+        "group": "8c49191b.e59cb8",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "label": "Sensor 2",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1040,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a822af7c.a0d9f",
+        "type": "ui_chart",
+        "z": "d5743cfa.f2bf3",
+        "name": "",
+        "group": "8c49191b.e59cb8",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "label": "Sensor 3",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1040,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "33ef52ca.5e96ee",
+        "type": "remote-access",
+        "z": "d5743cfa.f2bf3",
+        "d": true,
+        "confignode": "dec35e3b.b091",
+        "name": "",
+        "verbose": 0,
+        "x": 200,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e028494e.6bc3e8",
+        "type": "mqtt in",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "topic": "/topic/qos0",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "f46031cc.a4c45",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "a5316105.7556b"
+            ]
+        ]
+    },
+    {
+        "id": "a5316105.7556b",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "2adc0a9.9849af6",
+        "type": "mqtt out",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "topic": "/topic/qos0",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f46031cc.a4c45",
+        "x": 290,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "16e30350.5709ad",
+        "type": "inject",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "2adc0a9.9849af6"
+            ]
+        ]
+    },
+    {
+        "id": "c69cd5d6.f82148",
+        "type": "telegram command",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "command": "/total1",
+        "bot": "ef6b631c.463c9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "18b5b07a.44f46",
+                "d8599092.cf3a8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8d8f78d5.34fe18",
+        "type": "telegram sender",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "18b5b07a.44f46",
+        "type": "function",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "func": "var txt = \"TOI Company /total1 report:\\n\";\ntxt += \"(Time back: 1 hours)\\n\\n\";\n\ntxt += \"Sensor: Line 1\\n\";\ntxt += \"Total: 6,500\\n\\n\";\n\ntxt += \"Sensor: Line 2\\n\";\ntxt += \"Total: 3,233\\n\\n\";\n\ntxt += \"Sensor: Line 3\\n\";\ntxt += \"Total: 1,550\\n\\n\";\n\ntxt += \"Done. Click /help for assistance.\";\n\n\nmsg.payload.content = txt;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "8d8f78d5.34fe18"
+            ]
+        ]
+    },
+    {
+        "id": "d8599092.cf3a8",
+        "type": "debug",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "3d535ce6.a46244",
+        "type": "telegram command",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "command": "/help",
+        "bot": "ef6b631c.463c9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "b5da1df3.523a7",
+                "a0fa3ec8.b95de"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "710d6d6f.a31944",
+        "type": "telegram sender",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b5da1df3.523a7",
+        "type": "function",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "func": "// var text = \"TOI bot /help menu:\\n\";\n// text += \"\\n/total24: get the total counts for all sensors, you can replace the \\\"24\\\" with any number of \\\"hours back\\\" timeframe.\";\n// text += \"\\n/speed24: get the average speed for all sensors, you can replace the \\\"24\\\" with any number of \\\"hours back\\\" timeframe.\";\n\n// text += \"\\n\\nSome useful \\\"total\\\" examples below:\\n\";\n// text += \"/total12: totals over the last 12 hours.\\n\";\n// text += \"/total6: totals over the last 6 hours.\\n\";\n// text += \"/total2: totals over the last 2 hours.\\n\";\n// text += \"/total1: totals over the last 1 hours.\\n\";\n\n// text += \"\\nSome useful \\\"speed\\\" examples below:\\n\";\n// text += \"/speed12: avg speed over the last 12 hours.\\n\";\n// text += \"/speed6: avg speed over the last 6 hours.\\n\";\n// text += \"/speed2: avg speed over the last 2 hours.\\n\";\n// text += \"/speed1: avg speed over the last 1 hours.\\n\";\n\n// text += \"\\nContact TOI for any additional assistance.\\n\";\n\nvar text = \"TOI bot /help menu:\\n\";\ntext += \"\\n/total1: get the total counts for all sensors, you can replace the \\\"1\\\" with any number of \\\"hours back\\\" timeframe.\\n\";\ntext += \"\\n/speed1: get the average speed for all sensors, you can replace the \\\"1\\\" with any number of \\\"hours back\\\" timeframe.\";\n\ntext += \"\\n\\nContact TOI for any additional assistance.\\n\";\n\nmsg.payload.content = text;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "710d6d6f.a31944"
+            ]
+        ]
+    },
+    {
+        "id": "a0fa3ec8.b95de",
+        "type": "debug",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c790969.f046268",
+        "type": "telegram command",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "command": "/speed1",
+        "description": "",
+        "registercommand": false,
+        "bot": "ef6b631c.463c9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 680,
+        "wires": [
+            [
+                "6898a620.9ee6d8",
+                "f7df85d7.522288"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "74e22cde.2d5744",
+        "type": "telegram sender",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6898a620.9ee6d8",
+        "type": "function",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "func": "var txt = \"TOI Company /speed1 report:\\n\";\ntxt += \"(Time back: 1 hours)\\n\\n\";\n\ntxt += \"Sensor: Line 1\\n\";\ntxt += \"Avg speed: 6,500 / hour\\n\\n\";\n\ntxt += \"Sensor: Line 2\\n\";\ntxt += \"Avg speed: 3,233 / hour\\n\\n\";\n\ntxt += \"Sensor: Line 3\\n\";\ntxt += \"Avg speed: 1,550 / hour\\n\\n\";\n\ntxt += \"Done. Click /help for assistance.\";\n\n\nmsg.payload.content = txt;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 680,
+        "wires": [
+            [
+                "74e22cde.2d5744"
+            ]
+        ]
+    },
+    {
+        "id": "f7df85d7.522288",
+        "type": "debug",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "6d8ebd8b.d33a54",
+        "type": "telegram command",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "command": "/speed12",
+        "description": "",
+        "registercommand": false,
+        "bot": "ef6b631c.463c9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 120,
+        "y": 840,
+        "wires": [
+            [
+                "b38b48df.2d9318",
+                "ac3ba75d.dfba18"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b1751436.0c70b8",
+        "type": "telegram sender",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b38b48df.2d9318",
+        "type": "function",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "func": "var txt = \"TOI Company /speed12 report:\\n\";\ntxt += \"(Time back: 12 hours)\\n\\n\";\n\ntxt += \"Sensor: Line 1\\n\";\ntxt += \"Avg speed: 6,322 / hour\\n\\n\";\n\ntxt += \"Sensor: Line 2\\n\";\ntxt += \"Avg speed: 3,104 / hour\\n\\n\";\n\ntxt += \"Sensor: Line 3\\n\";\ntxt += \"Avg speed: 1,401 / hour\\n\\n\";\n\ntxt += \"Done. Click /help for assistance.\";\n\n\nmsg.payload.content = txt;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 840,
+        "wires": [
+            [
+                "b1751436.0c70b8"
+            ]
+        ]
+    },
+    {
+        "id": "ac3ba75d.dfba18",
+        "type": "debug",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "d7580f27.9910b",
+        "type": "telegram command",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "command": "/total12",
+        "description": "",
+        "registercommand": false,
+        "bot": "ef6b631c.463c9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 460,
+        "wires": [
+            [
+                "3d8f4743.4f6338",
+                "3259b489.5d157c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4b917f52.c3329",
+        "type": "telegram sender",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "bot": "ef6b631c.463c9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3d8f4743.4f6338",
+        "type": "function",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "func": "var txt = \"TOI Company /total12 report:\\n\";\ntxt += \"(Time back: 12 hours)\\n\\n\";\n\ntxt += \"Sensor: Line 1\\n\";\ntxt += \"Total: 66,223\\n\\n\";\n\ntxt += \"Sensor: Line 2\\n\";\ntxt += \"Total: 38,796\\n\\n\";\n\ntxt += \"Sensor: Line 3\\n\";\ntxt += \"Total: 18,221\\n\\n\";\n\ntxt += \"Done. Click /help for assistance.\";\n\n\nmsg.payload.content = txt;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 460,
+        "wires": [
+            [
+                "4b917f52.c3329"
+            ]
+        ]
+    },
+    {
+        "id": "3259b489.5d157c",
+        "type": "debug",
+        "z": "44de531d.d7524c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "383aac46.178e54",
+        "type": "mqtt in",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "topic": "/topic/espnow_data",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "f46031cc.a4c45",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "643e504a.0100f",
+                "c460890b.233bd8"
+            ]
+        ]
+    },
+    {
+        "id": "643e504a.0100f",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c460890b.233bd8",
+        "type": "function",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "func": "var temp = 0;   // 21.55 deg c\nvar ptime_us = 0; // 158,001 milli seconds\nvar batmv = 0;  // 3780 mV\nvar batt_dev_mac = \"\"; // 30:ae:a4:7e:50:90\nvar g_dev_mac = \"\"; // 30:ae:a4:7e:50:90\n\nvar data = msg.payload;\nvar data_len = data.length;\n\n// function toHexString(byteArray) {\n//   return Array.from(byteArray, function(byte) {\n//     return ('0' + (byte & 0xFF).toString(16)).slice(-2);\n//   }).join('')\n// }\n\n// temp\n// for (var x = 2; x < 6; x++)\nfor (var x = 0; x < 4; x++)\n{\n    temp += data[x] << (x * 8);\n}\n// need to divide temp by 16 to get temperature in deg. C\ntemp = temp / 16;\n\n// program time\n// for (var y = 6; y < 10; y++)\nfor (var y = 4; y < 8; y++)\n{\n    ptime_us += data[y] << (y * 8);\n}\n\n// bat voltage\n// for (var z = 10; z < 14; z++)\nfor (var z = 8; z < 12; z++)\n{\n    batmv += data[z] << (z * 8);\n}\n\n// crc must be bytes 12 and 13\n\n// batt_dev MAC address\nfor (var a = 14; a < 20; a++)\n// for (var a = 12; a < 18; a++)\n{\n    batt_dev_mac += (data[a] & 0xFF).toString(16);\n    if(a < 20-1){\n        batt_dev_mac += \":\";\n    }\n}\n\n// g_dev MAC address\nfor (var b = 20; b < 26; b++)\n// for (var b = 18; b < 24; b++)\n{\n    g_dev_mac += (data[b] & 0xFF).toString(16);\n    if(b < 26-1){\n        g_dev_mac += \":\";\n    }\n}\n\n// printf(\"temp: %d\\n\", temp);\n// printf(\"ptime_us: %d\\n\", ptime_us);\n// printf(\"batmv: %d\\n\", batmv);\n\n// for (uint32_t i = 0; i < data_len; i++)\n// {\n//     printf(\"data[%d]: %d\\n\", i, data[i]);\n// }\n\n// printf(\"data len: %d\\n\", data_len);\n\n\n\nmsg.parsed = {\n    \"temp\": temp,\n    \"ptime_us\": ptime_us,\n    \"batmv\": batmv,\n    \"data_len\": data_len,\n    \"batt_dev_mac\": batt_dev_mac,\n    \"g_dev_mac\": g_dev_mac\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 340,
+        "wires": [
+            [
+                "ac508db4.b95c2",
+                "6127e856.cda088"
+            ]
+        ]
+    },
+    {
+        "id": "ac508db4.b95c2",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "parsed",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "3a7b1cdb.cc1da4",
+        "type": "function",
+        "z": "885ca21a.80cba",
+        "name": "batdev_config",
+        "func": "",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\n// The purpose of this function is just to store the sensor data in global\n// context so it can be accessed by all of the nodes\n\n// WHEN ADDING SENSORS!!!\n// 1. add sensor to batdev_config\n// 2. increment number in \"join\" node after the /temps telegram InfluxDb query node...\n\nvar batdev_config = [\n    {\n        \"sensor_name\": \"tank 01\",\n        \"mac\": \"e8:db:84:24:44:80\",\n        \"high\": 22,\n        \"low\": 15\n    },\n    {\n        \"sensor_name\": \"tank 02\",\n        \"mac\": \"e8:68:e7:33:6d:28\",\n        \"high\": 20,\n        \"low\": 10\n    },\n    {\n        \"sensor_name\": \"tank 03\",\n        \"mac\": \"d8:a0:1d:5e:31:40\",\n        \"high\": 20,\n        \"low\": 10\n    },\n];\n\nvar result = global.set('batdev_config_arr', batdev_config); // store batdev_config array in global context\n\nreturn result;",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6127e856.cda088",
+        "type": "function",
+        "z": "885ca21a.80cba",
+        "name": "parse data for InfluxDB",
+        "func": "/* Description of function:\n\nExample data:\n\n{\n    \"temp\":17.25,\n    \"ptime_ms\":1122578,\n    \"batmv\":3610,\n    \"data_len\":26,\n    \"batt_dev_mac\":\"e8:db:84:24:44:80\",\n    \"g_dev_mac\":\"98:f4:ab:21:d3:13\"\n}\n\n*/\n\nvar temp = msg.parsed.temp;\nvar ptime_us = msg.parsed.ptime_us;\nvar batmv = msg.parsed.batmv;\nvar batt_dev_mac = msg.parsed.batt_dev_mac;\nvar g_dev_mac = msg.parsed.g_dev_mac;\n\nmsg.payload = [{\n    temp: temp,\n    ptime_us: ptime_us,\n    batmv: batmv,\n    g_dev_mac: \"98:f4:ab:21:d3:13\",\n},\n{\n    sensor_id: batt_dev_mac // tag\n}];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 440,
+        "wires": [
+            [
+                "dca8feca.cfb4f"
+            ]
+        ]
+    },
+    {
+        "id": "dca8feca.cfb4f",
+        "type": "influxdb out",
+        "z": "885ca21a.80cba",
+        "influxdb": "d646ca3f.430208",
+        "name": "",
+        "measurement": "temperature",
+        "precision": "s",
+        "retentionPolicy": "260w",
+        "database": "temp_data",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 940,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "5f95b519.107c3c",
+        "type": "telegram sender",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "bot": "593425c.06d04dc",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 350,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "beaf25cf.e97268",
+        "type": "inject",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"chatId\":1844668378,\"type\":\"message\",\"content\":\"yo yo what's up\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 700,
+        "wires": [
+            [
+                "5f95b519.107c3c"
+            ]
+        ]
+    },
+    {
+        "id": "377345ad.5bd84a",
+        "type": "telegram sender",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "bot": "593425c.06d04dc",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1450,
+        "y": 1780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "de1d909.6e1937",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "a7f4593b.25bd48",
+        "type": "influxdb in",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "influxdb": "d646ca3f.430208",
+        "name": "",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 860,
+        "y": 1580,
+        "wires": [
+            [
+                "de1d909.6e1937",
+                "9501d434.49e708",
+                "1e37c479.1b3edc"
+            ]
+        ]
+    },
+    {
+        "id": "2b1abf02.f3b96",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "9501d434.49e708",
+        "type": "function",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "func": "var text = \"Sensor: \" + msg.sensor_name + \"\\n\";\ntext += \"Total: \" + (msg.payload[0].sum).toString();\nvar ret = {\"chatId\":1844668378,\"type\":\"message\",\"content\":text}\nreturn {\"payload\":ret};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 1580,
+        "wires": [
+            [
+                "e07156bc.f453e8"
+            ]
+        ]
+    },
+    {
+        "id": "e07156bc.f453e8",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1270,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "99fdc7d9.8101d8",
+        "type": "function",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "all_sensors",
+        "func": "// get all the sensor summary report counts\n// return array of sensor summary data\n\nvar sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\n// var default_time_back = 24; // hours\nvar time_back = msg.payload.time_back;\n\nvar numSensors = Object.keys(sensors_config).length\n\n// node.warn(numSensors);\n\n// i = 0;\n\nvar msg_arr = []; //[Object.assign({}, msg), Object.assign({}, msg), Object.assign({}, msg)];\n\nfor(i = 0; i < numSensors; i++){\n    msg_arr.push(Object.assign({}, msg)); // make deep copy of msg object and push to array that will be returned\n    \n    var sensor_id = sensors_config[i].sensor_id;\n    msg_arr[i].sensor_id = sensor_id\n    \n    var sensor_name = sensors_config[i].sensor_name;\n    msg_arr[i].sensor_name = sensor_name\n    \n    // msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time >= '\" + t_from + \"Z' AND time <= '\" + t_to + \"Z'\";\n    \n    \n    // this works !!!\n    // msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 30m\";\n    \n    msg_arr[i].query = \"SELECT SUM(\\\"count\\\") FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - \" + time_back.toString() + \"h\";\n    \n    // node.warn(msg_arr);\n}\n\n// t_to = new Date();\n// t_from = t_to;\n// t_from.setHours(t_to.getHours() - default_time_back);\n\n// 2015-08-20T00:00:00Z\n\n// node.warn(t_to)\n// node.warn(t_from)\n/*\nvar sensor_id = sensors_config[i].sensor_id;\nmsg.sensor_id = sensor_id\n\nvar sensor_name = sensors_config[i].sensor_name;\nmsg.sensor_name = sensor_name\n\nmsg.query = \"SELECT SUM(\\\"count\\\") FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - \" + time_back.toString() + \"h\";\n*/\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time >= '\" + t_from + \"Z' AND time <= '\" + t_to + \"Z'\";\n\n\n// this works !!!\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 30m\";\n\n\n// msg.query = 'from(bucket: \"sensor_data/autogen\") |> range(start: -1d, stop: now())'\n// node.warn(msg_arr);\n// return {\"payload\":msg};\nreturn [msg_arr];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1600,
+        "wires": [
+            [
+                "a7f4593b.25bd48",
+                "2b1abf02.f3b96"
+            ]
+        ]
+    },
+    {
+        "id": "c3d0e974.f4b8f8",
+        "type": "inject",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "scheduled report",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "15 17 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"time_back\":24}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 1840,
+        "wires": [
+            [
+                "e1fb8777.cb0e68",
+                "dfdaa746.f02a68"
+            ]
+        ]
+    },
+    {
+        "id": "e1fb8777.cb0e68",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "1e37c479.1b3edc",
+        "type": "join",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "",
+        "propertyType": "full",
+        "key": "sensor_id",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 970,
+        "y": 1700,
+        "wires": [
+            [
+                "daf8c04a.8f008",
+                "63372150.8d573"
+            ]
+        ]
+    },
+    {
+        "id": "daf8c04a.8f008",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "63372150.8d573",
+        "type": "function",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "func": "/*\nvar sensors_config = [\n    {\n        \"sensor_name\": \"Boix 1\",\n        \"gpio_pin\": \"pi/12\", // (old 18) added the \"pi/\" to match what is sent by the gpio block\n        \"multiplier\": 0.5,\n        \"sensor_id\": \"0f19b032-1901-4591-a785-c9e51930bbd2\",  // use for influxDB \"tag\"\n        \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n    },\n    {\n        \"sensor_name\": \"White Illig\",\n        \"gpio_pin\": \"pi/16\", // (old 23)\n        \"multiplier\": 1,\n        \"sensor_id\": \"9e77a93d-9701-4279-841a-9d4854cf39fa\",  // use for influxDB \"tag\"\n        \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n    },\n    {\n        \"sensor_name\": \"Green Illig\",\n        \"gpio_pin\": \"pi/18\", // (old 24)\n        \"multiplier\": 1,\n        \"sensor_id\": \"73233027-6c52-4942-ac61-60d4f72e5601\",  // use for influxDB \"tag\"\n        \"sensor_type\": \"counter\",  // use for influxDB \"measurement\"\n    },\n];\n*/\n\n// var sensorData = msg.payload.payload;\nvar chatId = msg.originalMessage.chat.id;\n\nvar numSensors = Object.keys(msg.payload).length\n// var numSensors = Object.keys(sensorData).length\n\n// node.warn(msg);\n\n// node.warn(numSensors);\n\nvar sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\nvar sensorIds = Object.keys(msg.payload);\n// var sensorIds = Object.keys(msg.payload);\n// var sensorIds = Object.keys(sensorData);\n\n// node.warn(msg.payload);\n// node.warn(numSensors);\n\n// var timeBack = msg.query.slice(-3);\n// node.warn(numSensors);\n\nvar afterStr = \"now() - \";\nvar pos = msg.query.indexOf(afterStr) + afterStr.length;\n// node.warn(pos);\n\nvar timeBack = msg.query.substring(pos, msg.query.length - 1);\n// node.warn(timeBack);\n\n// node.warn(msg.query);\n\nvar totals_command = \"/total\" + timeBack;\n\n// node.warn(totals_command)\n\nvar text = \"TOI Company \" + totals_command + \" report:\\n\";\ntext += \"(Time back: \" + timeBack + \" hours)\\n\";\n\nfor(i = 0; i < numSensors; i++){\n    var sensorId = sensors_config[i].sensor_id;\n    var sensorName = msg.payload[sensorId].sensor_name;\n    // var sensorName = msg.payload[sensorIds[i]].sensor_name;\n    // var sensorName = sensorData[sensorIds[i]].sensor_name;\n    var sum = msg.payload[sensorId].payload[0].sum;\n    // var sum = msg.payload[sensorIds[i]].payload[0].sum;\n    // var sum = sensorData[sensorIds[i]].payload[0].sum;\n    text += \"\\nSensor: \" + sensorName + \"\\n\";\n    text += \"Total: \" + sum.toString() + \"\\n\";\n}\n\ntext += \"\\nDone. Click /help for assistance.\"\n\nvar ret = {\"chatId\":chatId,\"type\":\"message\",\"content\":text}\nreturn {\"payload\":ret};\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 1780,
+        "wires": [
+            [
+                "c55c5cf9.6265a",
+                "377345ad.5bd84a"
+            ]
+        ]
+    },
+    {
+        "id": "c55c5cf9.6265a",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1390,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "6592ef88.8def7",
+        "type": "telegram command",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "command": "/help",
+        "description": "",
+        "registercommand": false,
+        "bot": "593425c.06d04dc",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 90,
+        "y": 840,
+        "wires": [
+            [
+                "dbda9ef6.4d214",
+                "6cdae1a3.6c956"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "dbda9ef6.4d214",
+        "type": "function",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "func": "var text = \"TOI bot /help menu:\\n\";\ntext += \"\\n/temps: get the current temperatures for all sensors.\\n\";\ntext += \"\\nContact TOI for any additional assistance.\\n\";\n\nvar chatId = msg.payload.chatId;\n\nvar ret = {\"chatId\":chatId,\"type\":\"message\",\"content\":text}\nreturn {\"payload\":ret};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 840,
+        "wires": [
+            [
+                "666c99b0.e30308",
+                "10687a36.aba646"
+            ]
+        ]
+    },
+    {
+        "id": "666c99b0.e30308",
+        "type": "telegram sender",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "bot": "593425c.06d04dc",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 620,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6cdae1a3.6c956",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "10687a36.aba646",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "dfdaa746.f02a68",
+        "type": "function",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "insert_chat_ids",
+        "func": "/*\n// Code added here will be run once\n// whenever the node is started.\n\nvar tele_ids_config = [\n    {\n        \"name\": \"Jason\",\n        \"chatId\": 1844668378,\n    },\n    {\n        \"name\": \"John\",\n        \"chatId\": 1234,\n    },\n];\n\nvar result = global.set('tele_ids_config_arr', sensors_config); // store array in global context\n\nreturn result;\n*/\n\nvar ids_config = global.get('tele_ids_config_arr') || 0; // get tele_ids_config_arr\n\nvar numChats = ids_config.length\n\nvar chatIds_arr = [];\n// var names_arr = [];\n\n// node.warn(numChats);\n\n// node.warn(ids_config);\n\n// var msg_arr = [Object.assign({}, msg), Object.assign({}, msg)];\n// var msg_arr = [];\n\nfor(i = 0; i < numChats; i++){\n    // msg_arr.push(Object.assign({}, msg));\n    var chatId = ids_config[i].chatId;\n    // var name = ids_config[i].name;\n    \n    chatIds_arr.push(chatId);\n    // names_arr.push(name)\n    // msg_arr[i].originalMessage.chat.id = chatId; // weird \"path\" from what the telegram node outputs\n    // msg_arr[i].originalMessage = {\"chat\":{\"id\":chatId}}; // weird \"path\" from what the telegram node outputs\n}\n\nmsg.originalMessage = {\"chat\":{\"id\":chatIds_arr}}; // weird \"path\" from what the telegram node outputs\n\n// node.warn(msg_arr);\n\n// return [msg_arr];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 1720,
+        "wires": [
+            [
+                "b82d0cef.873fd",
+                "99fdc7d9.8101d8"
+            ]
+        ]
+    },
+    {
+        "id": "b82d0cef.873fd",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "6d105216.62847c",
+        "type": "telegram receiver",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "bot": "593425c.06d04dc",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 130,
+        "y": 1620,
+        "wires": [
+            [
+                "bf39477a.258848"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "23a35dee.192fc2",
+        "type": "function",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "custom_total_command",
+        "func": "// get all the sensor summary report counts\n// return array of sensor summary data\n\n// var sensors_config = global.get('sensors_config_arr') || 0; // get sensors_config_arr\n\nvar time_back = 24; // hours\n\n// i = 0;\n\n// t_to = new Date();\n// t_from = t_to;\n// t_from.setHours(t_to.getHours() - default_time_back);\n\n// 2015-08-20T00:00:00Z\n\n// node.warn(msg.originalMessage.text)\n\nvar msg_text = msg.originalMessage.text\n\nvar check = msg_text.substring(1, 6)\n// node.warn(check)\n\nif(check != \"total\"){\n    // node.warn(\"check != \\\"total\\\"\")\n    return null;\n} else{\n    var num = msg_text.substring(6)\n    // node.warn(num)\n    if(isNaN(num) == false){\n        time_back = Math.abs(parseInt(num))\n    }\n}\n\n// node.warn(time_back)\n\nmsg.payload.time_back = time_back;\n\n// node.warn(t_from)\n\n// var sensor_id = sensors_config[i].sensor_id;\n// msg.sensor_id = sensor_id\n\n// var sensor_name = sensors_config[i].sensor_name;\n// msg.sensor_name = sensor_name\n\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time >= '\" + t_from + \"Z' AND time <= '\" + t_to + \"Z'\";\n\n\n// this works !!!\n// msg.query = \"SELECT * FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 30m\";\n\n// msg.query = \"SELECT SUM(\\\"count\\\") FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - 24h\";\n\n// msg.query = 'from(bucket: \"sensor_data/autogen\") |> range(start: -1d, stop: now())'\n\n// return {\"payload\":msg};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 1620,
+        "wires": [
+            [
+                "99fdc7d9.8101d8"
+            ]
+        ]
+    },
+    {
+        "id": "bf39477a.258848",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "d": true,
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "a5f9d0dd.32426",
+        "type": "telegram command",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "command": "/temps",
+        "description": "",
+        "registercommand": false,
+        "bot": "593425c.06d04dc",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 90,
+        "y": 940,
+        "wires": [
+            [
+                "e4cb88c0.effaa8",
+                "b1a68b48.197d68"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e4cb88c0.effaa8",
+        "type": "function",
+        "z": "885ca21a.80cba",
+        "name": "all_sensors",
+        "func": "/*\n\nvar batdev_config = [\n    {\n        \"sensor_name\": \"temp 1\",\n        \"mac\": \"e8:db:84:24:44:80\",\n        \"high\": 22,\n        \"low\": 15\n    },\n];\n\n*/\n\n// get all the sensor summary report counts\n// return array of sensor summary data\n\nvar batdev_config = global.get('batdev_config_arr') || 0; // get batdev_config_arr\n\n// var time_back = msg.payload.time_back;\n\nvar numSensors = Object.keys(batdev_config).length\n\n// node.warn(numSensors);\n\nvar msg_arr = [];\n\nfor(i = 0; i < numSensors; i++){\n    msg_arr.push(Object.assign({}, msg)); // make deep copy of msg object and push to array that will be returned\n    \n    var sensor_id = batdev_config[i].mac;\n    msg_arr[i].sensor_id = sensor_id\n    \n    var sensor_name = batdev_config[i].sensor_name;\n    msg_arr[i].sensor_name = sensor_name\n\n    // SELECT * FROM \"temperature\" WHERE sensor_id='e8:db:84:24:44:80' GROUP BY * ORDER BY DESC LIMIT 1\n    \n    msg_arr[i].query = \"SELECT * FROM \\\"temperature\\\" WHERE sensor_id='\" + batdev_config[i][\"mac\"] + \"' GROUP BY * ORDER BY DESC LIMIT 1\";\n    \n    // msg_arr[i].query = \"SELECT SUM(\\\"count\\\") FROM \\\"counter\\\" WHERE \\\"sensor_id\\\" = '\" + sensor_id + \"' AND time > now() - \" + time_back.toString() + \"h\";\n    \n    // node.warn(msg_arr);\n}\n\n\nreturn [msg_arr];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 940,
+        "wires": [
+            [
+                "107582bd.24b8dd",
+                "bd921320.c1d04"
+            ]
+        ]
+    },
+    {
+        "id": "107582bd.24b8dd",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "ab4ff00a.8e22e",
+        "type": "telegram sender",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "bot": "593425c.06d04dc",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1250,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "86e244f0.f624d8",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "bd921320.c1d04",
+        "type": "influxdb in",
+        "z": "885ca21a.80cba",
+        "influxdb": "1f68bbcb.55f424",
+        "name": "",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 670,
+        "y": 1020,
+        "wires": [
+            [
+                "86e244f0.f624d8",
+                "162e590a.8ef817"
+            ]
+        ]
+    },
+    {
+        "id": "162e590a.8ef817",
+        "type": "join",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "",
+        "propertyType": "full",
+        "key": "sensor_id",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 770,
+        "y": 1140,
+        "wires": [
+            [
+                "efdac5c7.6b0708",
+                "a77cd8bd.68f488"
+            ]
+        ]
+    },
+    {
+        "id": "efdac5c7.6b0708",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "a77cd8bd.68f488",
+        "type": "function",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "func": "/*\nvar batdev_config = [\n    {\n        \"sensor_name\": \"temp 1\",\n        \"mac\": \"e8:db:84:24:44:80\",\n        \"high\": 22,\n        \"low\": 15\n    },\n];\n*/\n\nvar chatId = msg.originalMessage.chat.id;\n\nvar numSensors = Object.keys(msg.payload).length\n\n// node.warn(msg);\n// node.warn(numSensors);\n\nvar batdev_config = global.get('batdev_config_arr') || 0; // get batdev_config_arr\n\nvar sensorIds = Object.keys(msg.payload);\n// var sensorIds = Object.keys(msg.payload);\n// var sensorIds = Object.keys(sensorData);\n\n// node.warn(msg.payload);\n// node.warn(numSensors);\n\n// var timeBack = msg.query.slice(-3);\n// node.warn(numSensors);\n\n// var afterStr = \"now() - \";\n// var pos = msg.query.indexOf(afterStr) + afterStr.length;\n// node.warn(pos);\n\n// var timeBack = msg.query.substring(pos, msg.query.length - 1);\n// node.warn(timeBack);\n\n// node.warn(msg.query);\n\n// var totals_command = \"/total\" + timeBack;\n\n// node.warn(totals_command)\n\n\n\nvar text = \"TOI Company /temps report:\\n\\n\";\n\nfor(i = 0; i < numSensors; i++){\n    var sensorId = batdev_config[i].mac;\n    var sensorName = msg.payload[sensorId].sensor_name;\n    // var sensorName = msg.payload[sensorIds[i]].sensor_name;\n    // var sensorName = sensorData[sensorIds[i]].sensor_name;\n    // var sum = msg.payload[sensorId].payload[0].sum;\n    var temp = msg.payload[sensorId].payload[0].temp;\n    temp = Math.round((temp + Number.EPSILON) * 10) / 10;\n    // var sum = msg.payload[sensorIds[i]].payload[0].sum;\n    // var sum = sensorData[sensorIds[i]].payload[0].sum;\n    \n    var time_temp = Date.parse(msg.payload[sensorId].payload[0].time);\n    var time_now = Date.now();\n    var time_diff_sec =  Math.round((time_now - time_temp)/1000);\n    // node.warn(time_temp);\n    // node.warn(time_now);\n    // node.warn(time_diff_sec);\n    \n    var time_back_text = \"\";\n    \n    if(time_diff_sec < 60){\n        // 0 sec to 59 sec\n        time_back_text = time_diff_sec + \" sec\";\n    } else if(time_diff_sec > 59 && time_diff_sec < 60*59){\n        // 1 min to 59 min\n        time_back_text = Math.round(time_diff_sec/60) + \" min\";\n    } else if(time_diff_sec > 60*59 && time_diff_sec < (23*60*60 + 60*59 + 59)){\n        // 1 hour to 23h 59m 59s\n        var hours = Math.round(time_diff_sec/(60*60));\n        time_back_text = hours + \" hour\";\n        if(hours > 1){\n            time_back_text += \"s\";\n        }\n    } else if(time_diff_sec >= (23*60*60 + 60*59 + 59)){\n        // 1 day or more\n        var days = Math.round(time_diff_sec/(60*60*24));\n        time_back_text = days + \" day\";\n        if(days > 1){\n            time_back_text += \"s\";\n        }\n    }\n    \n    text += sensorName + \" (\" + time_back_text + \" ago): \" + temp + \"\\n\";\n    // text += \"\\n\" + sensorName + \" (\" + time_back_text + \" ago): \" + temp + \"\\n\";\n    // text += \"(last update: 5 min ago)\\n\";\n}\n\ntext += \"\\nDone. Click /help for assistance.\"\n\nvar ret = {\"chatId\":chatId,\"type\":\"message\",\"content\":text}\nreturn {\"payload\":ret};\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 1220,
+        "wires": [
+            [
+                "7e2c2a6d.95faa4",
+                "ab4ff00a.8e22e"
+            ]
+        ]
+    },
+    {
+        "id": "7e2c2a6d.95faa4",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "b1a68b48.197d68",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 230,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "377bfa0e.e61056",
+        "type": "serial in",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "serial": "4351e1fb.05b13",
+        "x": 190,
+        "y": 580,
+        "wires": [
+            [
+                "dc4f97f5.7d4498",
+                "c588001b.6fdaf"
+            ]
+        ]
+    },
+    {
+        "id": "dc4f97f5.7d4498",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "c588001b.6fdaf",
+        "type": "join",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "sensor_id",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "0.1",
+        "count": "26",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 610,
+        "y": 620,
+        "wires": [
+            [
+                "2574f6ca.5efbfa"
+            ]
+        ]
+    },
+    {
+        "id": "3f5bccb9.4c8784",
+        "type": "debug",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "2574f6ca.5efbfa",
+        "type": "function",
+        "z": "885ca21a.80cba",
+        "name": "",
+        "func": "\nvar length = msg.payload.length;\n\nvar data_arr = [];\n\nfor(var i = 0; i < length; i++){\n    var byte = msg.payload[i];\n    var clean_byte = byte.substring(1, byte.length-1);\n    data_arr.push(parseInt(clean_byte));\n}\n\nmsg.payload = data_arr;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 620,
+        "wires": [
+            [
+                "3f5bccb9.4c8784",
+                "c460890b.233bd8"
+            ]
+        ]
+    }
+]

@@ -16,8 +16,9 @@
 
 // SHIFT + ALT + F
 
-#define MEASUREMENT_INTERVAL_SECONDS 9 // should subtract +-0.75 seconds for temp conversion?
-// #define MEASUREMENT_INTERVAL_SECONDS 300 // should subtract +-0.75 seconds for temp conversion?
+#define MEASUREMENT_INTERVAL_SECONDS 301
+// #define MEASUREMENT_INTERVAL_SECONDS 299 // this resulted in a difference of 298s between data points
+// #define MEASUREMENT_INTERVAL_SECONDS 300 //// should subtract +-0.75 seconds for temp conversion?
 
 #include <stdio.h>
 #include "esp_sleep.h"
@@ -54,6 +55,8 @@
 
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
+bool LED_DEBUG = false;
+
 static const char *TAG = "espnow_batt_dev";
 
 static xQueueHandle s_example_espnow_queue;
@@ -66,7 +69,7 @@ SemaphoreHandle_t can_sleep_sema = NULL;
 
 //! end batt_dev_1 stuff
 
-RTC_DATA_ATTR uint32_t ptime_ms;
+RTC_DATA_ATTR uint32_t ptime_us;
 
 extern const uint8_t ulp_main_bin_start[] asm("_binary_ulp_main_bin_start");
 extern const uint8_t ulp_main_bin_end[] asm("_binary_ulp_main_bin_end");
@@ -206,10 +209,10 @@ void example_espnow_data_prepare(example_espnow_send_param_t *send_param)
     // PREVIOUS program time
     for (int i = 4; i < 8; i++)
     {
-        buf->payload[i] = ((ptime_ms >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
+        buf->payload[i] = ((ptime_us >> (i * 8)) & 0xff); //extract the right-most byte of the shifted variable
     }
-    ESP_LOGI(TAG, "ptime_ms: %d", ptime_ms);
-    printf("ptime_ms: %d\n", ptime_ms);
+    ESP_LOGI(TAG, "ptime_us: %d", ptime_us);
+    printf("ptime_us: %d\n", ptime_us);
 
     // bat voltage
     for (int i = 8; i < 12; i++)
@@ -349,8 +352,12 @@ void app_main(void)
     gpio_config(&io_conf);
     // set led low and hold (not sure how much hold helps...)
 
-    gpio_set_level(led_pin, 1);
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    if (LED_DEBUG == true)
+    {
+        gpio_set_level(led_pin, 1);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+    }
+
     gpio_set_level(led_pin, 0);
     gpio_hold_en(led_pin);
     //* end led stuff
@@ -365,7 +372,7 @@ void app_main(void)
     {
         printf("Not ULP wakeup, initializing ULP\n");
         init_ulp_program();
-        ptime_ms = 0;
+        ptime_us = 0;
     }
     else
     {
@@ -397,10 +404,10 @@ void app_main(void)
     ESP_ERROR_CHECK(ulp_set_wakeup_period(0, MEASUREMENT_INTERVAL_SECONDS * 1000000));
     ESP_ERROR_CHECK(esp_sleep_enable_ulp_wakeup());
 
-    ptime_ms = (uint32_t)esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
+    ptime_us = (uint32_t)esp_timer_get_time(); // could be an issue with int64_t to uint32_t?
 
-    ESP_LOGI(TAG, "ptime_ms = %d\nSleeping.", ptime_ms);
-    printf("ptime_ms = %d\nSleeping.\n", ptime_ms);
+    ESP_LOGI(TAG, "ptime_us = %d\nSleeping.", ptime_us);
+    printf("ptime_us = %d\nSleeping.\n", ptime_us);
 
     // set blue led off when in deep sleep
     rtc_gpio_set_level(led_pin, 0); //GPIO_NUM_2
